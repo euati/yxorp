@@ -1,35 +1,6 @@
-{% extends 'base.html' %} {% load ehcofilter %}{% block main %}
-<div class="columns">
-    <div class="column is-one-third">
-        <div class="notification is-danger">
-            <button class="delete"></button>
-            <p class="title is-4">
-                好像发现了一个
-                <br />
-                <br />了不得的地方！
-            </p>
-        </div>
-    </div>
-    <div class="column is-one-third">
-        <div class="notification is-success">
-            <button class="delete"></button>
-            <p class="title is-4">
-                是啊是啊！
-                <br />
-                <br />要进去瞧瞧么？</p>
-        </div>
-    </div>
-    <div class="column is-one-third">
-        <div class="notification is-link">
-            <button class="delete"></button>
-            <p class="title is-4">
-                当然要去！
-                <br />
-                <br />魔王总要救公主！</p>
-        </div>
-    </div>
-</div>
-<br /> {% if user.is_authenticated %}
+{% extends 'base.html' %} {% load ehcofilter %}{% block main %} {% include "basehead.html" %}
+
+<!-- <br /> {% if user.is_authenticated %}
 <div class="box">
     <p class="title">欢迎小主: {{ user.username }}</p>
     <p class="subtitle">点击下方按钮进入用户中心 </p>
@@ -56,4 +27,26 @@
     <h2 class="subtitle">有账号了？登录吧少年！</h2>
     <a class="button is-danger is-outlined" href="{% url 'sspanel:login' %}">登录</a>
 </div>
-<br /> {% endif %} {% endblock main %}
+<br /> {% endif %} {% endblock main %} -->
+
+<section class="hero is-fullheight is-dark header-image">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+          <br>
+              {% if user.is_authenticated %}
+              <div class="container mybuttons">
+                <a href="{% url 'sspanel:userinfo' %}"><button class="button mybutton">Go to billing panel</button></a>
+              </div>
+              {% else %}
+              <div class="container mybuttons">
+                <a class="button is-link  mybutton" href="{% url 'sspanel:register' %}">Try it Free</a>
+                <a class="button is-danger is-outlined mybutton" href="{% url 'sspanel:login' %}">Log in</a>
+              </div>
+              {% endif %}
+        </div>
+    </div>
+    <div class="content has-text-centered" style="font-size: 11px;">
+        <a href="{% url 'sspanel:index' %}">XYZ</a> © 2018-2020
+    </div>
+</section>
+{% endblock main %}

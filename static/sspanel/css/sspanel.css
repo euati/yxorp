@@ -25,6 +25,121 @@
 }
 
 
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+
+.column > .box > .panel {
+    background-color: whitesmoke;
+}
+
+
+.get_bonus {
+    padding: 5px;
+    border: 1px solid #b5b5b5;
+    background-color: white;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 3px;
+    display: inline-flex;
+}
+
+.get_bonus:hover {
+    border: 1px solid black;
+}
+
+.download_link {
+    color: #4785e8;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+
+.apps_ios {
+    margin-left: 20px;
+}
+
+
+
+.header-image { 
+    background: url("https://images.pexels.com/photos/1181334/pexels-photo-1181334.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+    background-size:cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.mytitle {
+    padding-top: 70px;
+}
+
+.mycontainer {
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+.mycolumns {
+    margin: 0px 50px;
+}
+
+.mycolumn {
+    margin: 20px 10px;
+    border-radius: 5px;
+    padding: 60px 0;
+    box-shadow:  0 0 10px rgba(0,0,0,0.2);
+}
+
+
+.mycolumn:hover {
+    box-shadow:  0 0 10px #FF7166;
+}
+
+
+.icon_logo {
+    margin: 20px;
+}
+
+.myserver {
+    margin-top: 30px;
+}
+
+.mybutton {
+    margin: 15px 5px 0px 5px;
+    padding: 0 50px;
+}
+
+.mybuttons {
+    padding-bottom:  40px;
+}
+
+.mybody2 {
+    padding: 80px 0;
+}
+
+
+
 @media all and (max-width: 768px) {
     body {
         /* On modern browsers, prevent the whole page to bounce */
