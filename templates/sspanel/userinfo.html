@@ -15,6 +15,29 @@
                     <a href="{% url 'password_change' %}">Change password</a>
                 </button>
                 <hr>
+                <article class="message is-active">
+                    <div class="message-header">
+                        <p>Connection Information</p>
+                    </div>
+                    <div class="message-body">
+                        <li> Port：
+                            <code><span id="port">{{ user.ss_port }}</span></code>
+                        </li>
+                        <li> Password：
+                            <code>{{ user.ss_password }}</code>
+                        </li>
+                        <li> Encryption:
+                            <code>{{ user.ss_method }}</code>
+                        </li>
+                        <li> UUID：
+                            <code>{{ user.vmess_uuid }}</code>
+                        </li>
+                        <br>
+                        <div class="buttons">
+                            <span class="button is-link modal-button is-rounded" data-target="modal-sub">Subscription address</span>
+                        </div>
+                    </div>
+                </article>
                 <div id="id-checkin-box">
                     {% if user.today_is_checkin %}
                     <p class="subtitle is-5 is-spaced">You already had today's daily bonuse <br>
@@ -45,29 +68,6 @@
         <div class="tile is-7 is-vertical is-parent">
 
             <div class="tile box is-child">
-                <article class="message is-active">
-                    <div class="message-header">
-                        <p>Connection Information</p>
-                    </div>
-                    <div class="message-body">
-                        <li> Port：
-                            <code><span id="port">{{ user.ss_port }}</span></code>
-                        </li>
-                        <li> Password：
-                            <code>{{ user.ss_password }}</code>
-                        </li>
-                        <li> Encryption:
-                            <code>{{ user.ss_method }}</code>
-                        </li>
-                        <li> UUID：
-                            <code>{{ user.vmess_uuid }}</code>
-                        </li>
-                        <br>
-                        <div class="buttons">
-                            <span class="button is-link modal-button is-rounded" data-target="modal-sub">Subscription address</span>
-                        </div>
-                    </div>
-                </article>
                 <div class="modal nodeinfo" id="modal-sub">
                     <div class="modal-background"></div>
                     <div class="modal-card">
