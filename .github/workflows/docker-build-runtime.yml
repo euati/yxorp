@@ -1,0 +1,18 @@
+name: Build-Runtime
+on:
+  push:
+    branches:
+      - build
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: ehco1996/django-sspanel
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        tags: "latest,runtime"
+        dockerfile: Dockerfile
