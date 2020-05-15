@@ -102,7 +102,7 @@ class RegisterForm(UserCreationForm):
 class LoginForm(forms.Form):
     username = forms.CharField(
         required=True,
-        label=u"Username",
+        label=u"Email or username",
         error_messages={"required": "Email or username"},
         widget=forms.TextInput(
             attrs={"class": "input is-primary", "placeholder": "example@mail.com"}

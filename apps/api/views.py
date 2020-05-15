@@ -322,12 +322,12 @@ def gen_invite_code(request):
     num = InviteCode.create_by_user(request.user)
     if num > 0:
         registerinfo = {
-            "title": "成功",
-            "subtitle": "添加邀请码{}个,请刷新页面".format(num),
+            "title": "Success",
+            "subtitle": "Created{}invites, please refresh the page".format(num),
             "status": "success",
         }
     else:
-        registerinfo = {"title": "失败", "subtitle": "已经不能生成更多的邀请码了", "status": "error"}
+        registerinfo = {"title": "Error", "subtitle": "Contact administrator to repeat cycle", "status": "error"}
     return JsonResponse(registerinfo)
 
 
@@ -338,11 +338,11 @@ def purchase(request):
     good = Goods.objects.get(id=good_id)
     if not good.purchase_by_user(request.user):
         return JsonResponse(
-            {"title": "金额不足！", "status": "error", "subtitle": "请去捐赠界面/联系站长充值"}
+            {"title": "Error", "status": "error", "subtitle": "You do not have enough funds, refill your account"}
         )
     else:
         return JsonResponse(
-            {"title": "购买成功", "status": "success", "subtitle": "请在用户中心检查最新信息"}
+            {"title": "Success", "status": "success", "subtitle": "Congratulations! Successfully purchased"}
         )
 
 
