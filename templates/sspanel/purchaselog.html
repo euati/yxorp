@@ -4,27 +4,27 @@
     <nav class="level box ">
         <div class="level-item has-text-centered">
             <div>
-                <p class="heading">用户名:</p>
+                <p class="heading">Username:</p>
                 <p class="title">{{ user }}</p>
             </div>
         </div>
         <div class="level-item has-text-centered">
             <div>
-                <p class="heading">余额：</p>
+                <p class="heading">Balance：</p>
                 <p class="title"><code>{{ user.balance }}元</code></p>
             </div>
         </div>
     </nav>
     <div class="box">
         <div class="content">
-            <p class="subtitle">购买记录：</p>
+            <p class="subtitle">Purchase history:</p>
             <table class="table is-striped">
                 <thead>
                     <tr>
                         <th>ID:</th>
-                        <th>名称:</th>
-                        <th>金额:</th>
-                        <th>时间:</th>
+                        <th>Option:</th>
+                        <th>Money:</th>
+                        <th>Date:</th>
                     </tr>
                 </thead>
                 {% for record in records %}
@@ -36,7 +36,7 @@
                 </tr>
                 {% empty %}
                 <h2 class="subtitle">
-                    还没有买过东西呢....
+                    You have not bought anything yet ....
                 </h2>
                 {% endfor %}
             </table>

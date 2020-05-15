@@ -5,14 +5,8 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    商品列表：
+                    Options: 
                 </h1>
-                <h2 class="subtitle">
-                    PY站长获得充值码 或者
-                    <a href="{% url 'sspanel:donate' %}">
-                        <strong>捐赠</strong>
-                    </a>那支持支付宝!
-                </h2>
             </div>
         </div>
     </section>
@@ -21,13 +15,13 @@
     <nav class="level box">
         <div class="level-item has-text-centered">
             <div>
-                <p class="heading">用户名:</p>
+                <p class="heading">User:</p>
                 <p class="title">{{ user }}</p>
             </div>
         </div>
         <div class="level-item has-text-centered">
             <div>
-                <p class="heading">余额：</p>
+                <p class="heading">Balance：</p>
                 <p class="title">{{ user.balance }}</p>
             </div>
         </div>
@@ -37,29 +31,29 @@
         <div class="card">
             <header class="card-header">
                 <p class="card-header-title">
-                    商品名:{{ good.name }}
+                    Rate:{{ good.name }}
                 </p>
                 <a class="modal-button card-header-icon" data-target="modal-{{ good.pk }}">
                     <span class="icon">
                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                     </span>
-                    <span>购买</span>
+                    <span>Buy</span>
                 </a>
             </header>
             <div class="card-content">
                 <div class="content">
                     <p class="subtitle"> {{ good.content }} </p>
-                    <strong>价格：</strong>
+                    <strong>Price：</strong>
                     <code>{{ good.money }}元</code>
                     <br>
-                    <strong>流量：</strong>
+                    <strong>Traffic：</strong>
                     <code>{{ good.total_transfer }}</code>
                     <br>
-                    <strong>提升等级至：</strong>
+                    <strong>Level:</strong>
                     <code>{{ good.level }} 级</code>
                     <br>
-                    <strong>等级有效期：</strong>
-                    <code>{{ good.days }} 天</code>
+                    <strong>Validity:</strong>
+                    <code>{{ good.days }} days</code>
                 </div>
             </div>
         </div>
@@ -67,30 +61,30 @@
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
-                    <p class="modal-card-title">订单确认:</p>
+                    <p class="modal-card-title">Order Confirmation::</p>
                     <button class="delete"></button>
                 </header>
                 <section class="modal-card-body" data-id="{{ good.pk }}">
                     <p class="subtitle"> {{ good.name }} </p>
-                    <strong>价格：</strong>
+                    <strong>Price：</strong>
                     <code>{{ good.money }}元</code>
                     <br>
-                    <strong>流量：</strong>
+                    <strong>Traffic：</strong>
                     <code>{{ good.total_transfer }} GB</code>
                     <br>
-                    <strong>提升等级至：</strong>
+                    <strong>Level:</strong>
                     <code>{{ good.level }} 级</code>
                     <br>
-                    <strong>等级有效期：</strong>
+                    <strong>Validity:</strong>
                     <code>{{ good.days }} 天</code>
                     <br>
                     <br>
-                    <a class="button is-danger is-outlined" id="id-button-pruchase">确认购买</a>
+                    <a class="button is-danger is-outlined" id="id-button-pruchase">Confirm purchase</a>
                 </section>
             </div>
         </div>
         <br> {% empty %}
-        <p class="subtitle">暂时没有商品上架哦</p>
+        <p class="subtitle">No products available</p>
         {% endfor %}
     </div>
 </div>

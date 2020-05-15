@@ -5,11 +5,11 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    我的推广：
+                    My promotion:
                 </h1>
                 <h2 class="subtitle">
-                    每当通过你的<strong>邀请码/邀请链接</strong>注册的用户<strong>消费一笔</strong>
-                    <p>你就能获得<strong>{{ invite_percent }}%</strong>的返利哟！
+                    Every time a user registered through your invitation code/invitation link spends a sum
+                    <p>You can get<strong>{{ invite_percent }}%</strong>rebate!
                     </p>
                 </h2>
             </div>
@@ -19,7 +19,7 @@
 <div class="column is-12">
     <div class="box">
         <div>
-            <p class="subtitle">我的邀请链接: </p>
+            <p class="subtitle">invitation link: </p>
             <div class="field is-grouped">
                 <p class="control is-expanded">
                     <input class="input is-rounded is-focused" id="id-sub-link" value="{{ ref_link }}" readonly>
@@ -30,30 +30,30 @@
                     </a>
                 </p>
             </div>
-            <span class="copied" hidden="true">复制成功!</span>
+            <span class="copied" hidden="true">Copied</span>
         </div>
     </div>
 
     <div class="box">
         <div class="content">
-            <p class="subtitle">我的邀请码: </p>
+            <p class="subtitle">invitation code: </p>
             <table class="table is-striped">
                 <thead>
                     <tr>
-                        <th>时间</th>
-                        <th>邀请码</th>
-                        <th>是否使用</th>
+                        <th>Time</th>
+                        <th>Invitation code</th>
+                        <th>Use or not</th>
                     </tr>
                 </thead>
                 {% for code in code_list %}
                 <tr>
-                    <td>{{ code.created_at | date:"m月d日" }}</td>
+                    <td>{{ code.created_at | date:"m/d/" }}</td>
                     <td>{{ code.code }}</td>
                     <td>{{ code.used }}</td>
                 </tr>
                 {% endfor %}
             </table>
-            <p align="right"><a class="button is-outlined is-info" id="id-gen-invitecode">生成{{ invitecode_num }}个邀请码
+            <p align="right"><a class="button is-outlined is-info" id="id-gen-invitecode">Generate{{ invitecode_num }}codes
                 </a></p>
         </div>
     </div>
