@@ -14,80 +14,6 @@
                 <button class="button is-rounded">
                     <a href="{% url 'password_change' %}">Change password</a>
                 </button>
-                <!-- <button class="button is-rounded">
-                    <a>
-                        <span id="id-change-port">Change port</span>
-                    </a>
-                </button> -->
-                <hr>
-                <!-- <div class="field is-grouped">
-                    <div class="control has-icons-left">
-                        <div class="select is-rounded is-fullwidth is-info ">
-                            <select name="selects">
-                                <option value="" disabled="" selected="">Change theme</option>
-                                <option disabled="">───</option>
-                                {% for theme in  themes %}
-                                <option value="{{ theme.0 }}">{{ theme.1 }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="icon is-small is-left">
-                            <i class="fa fa-torah"></i>
-                        </div>
-                    </div>
-                    <p class="control">
-                        <button class="button is-outlined is-info is-rounded" id="id-button-theme">Change</button>
-                    </p>
-                </div> -->
-                <div class="field is-grouped">
-                    <div class="control has-icons-left">
-                        <div class="select is-fullwidth">
-                            <select name="selects-sub-types">
-                                <option value="" disabled="" selected="">Change subscription type</option>
-                                <option disabled="">───</option>
-                                {% for sub_type in  sub_types %}
-                                <option value="{{ sub_type.0 }}">{{ sub_type.1 }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="icon is-small is-left">
-                            <i class="fa fa-rocket"></i>
-                        </div>
-                    </div>
-                    <p class="control">
-                        <button class="button is-info" id="id-button-sub">Confirm</button>
-                    </p>
-                </div>
-                <div class="field is-grouped">
-                    <div class="control has-icons-left">
-                        <div class="select is-fullwidth is-link">
-                            <select name="selects-method-types">
-                                <option value="" disabled="" selected="">Change the encryption method</option>
-                                <option disabled="">───</option>
-                                {% for m in methods %}
-                                <option>{{ m }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="icon is-small is-left">
-                            <i class="fa fa-wrench"></i>
-                        </div>
-                    </div>
-                    <p class="control">
-                        <button class="button is-link is-info" id="id-button-method">Confirm</button>
-                    </p>
-                </div>
-                <div class="field is-grouped">
-                    <div class="control has-icons-left">
-                        <input name="num" class="input" placeholder="Change SS password" id="id-password">
-                        <div class="icon is-small is-left">
-                            <i class="fa fa-key"></i>
-                        </div>
-                    </div>
-                    <p class="control">
-                        <button class="button is-primary " id="id-button-password">Confirm</button>
-                    </p>
-                </div>
                 <hr>
                 <div id="id-checkin-box">
                     {% if user.today_is_checkin %}
@@ -284,6 +210,87 @@
                             <code>{{ user.last_use_time}}</code>
                         </li>
 
+                    </div>
+                </article>
+
+                <article class="message is-danger">
+                    <div class="message-header">
+                        <p>Change Configuration</p>
+                    </div>
+                    <div class="message-body">
+                                        <!-- <button class="button is-rounded">
+                    <a>
+                        <span id="id-change-port">Change port</span>
+                    </a>
+                </button> -->
+                <!-- <div class="field is-grouped">
+                    <div class="control has-icons-left">
+                        <div class="select is-rounded is-fullwidth is-info ">
+                            <select name="selects">
+                                <option value="" disabled="" selected="">Change theme</option>
+                                <option disabled="">───</option>
+                                {% for theme in  themes %}
+                                <option value="{{ theme.0 }}">{{ theme.1 }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="icon is-small is-left">
+                            <i class="fa fa-torah"></i>
+                        </div>
+                    </div>
+                    <p class="control">
+                        <button class="button is-outlined is-info is-rounded" id="id-button-theme">Change</button>
+                    </p>
+                </div> -->
+                <div class="field is-grouped">
+                    <div class="control has-icons-left">
+                        <div class="select is-fullwidth">
+                            <select name="selects-sub-types">
+                                <option value="" disabled="" selected="">Change subscription type</option>
+                                <option disabled="">───</option>
+                                {% for sub_type in  sub_types %}
+                                <option value="{{ sub_type.0 }}">{{ sub_type.1 }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="icon is-small is-left">
+                            <i class="fa fa-rocket"></i>
+                        </div>
+                    </div>
+                    <p class="control">
+                        <button class="button is-info" id="id-button-sub">Confirm</button>
+                    </p>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control has-icons-left">
+                        <div class="select is-fullwidth is-link">
+                            <select name="selects-method-types">
+                                <option value="" disabled="" selected="">Change the encryption method</option>
+                                <option disabled="">───</option>
+                                {% for m in methods %}
+                                <option>{{ m }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="icon is-small is-left">
+                            <i class="fa fa-wrench"></i>
+                        </div>
+                    </div>
+                    <p class="control">
+                        <button class="button is-link is-info" id="id-button-method">Confirm</button>
+                    </p>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control has-icons-left">
+                        <input name="num" class="input" placeholder="Change SS password" id="id-password">
+                        <div class="icon is-small is-left">
+                            <i class="fa fa-key"></i>
+                        </div>
+                    </div>
+                    <p class="control">
+                        <button class="button is-primary " id="id-button-password">Confirm</button>
+                    </p>
+                </div>
                     </div>
                 </article>
 

@@ -1,22 +1,9 @@
 {% extends 'base.html' %} {% block main %}
 
-<div class="column is-12">
-    <section class="hero is-info is-smaill">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    注册界面：
-                </h1>
-                <h2 class="subtitle">
-                    注册需要邀请码喔
-                </h2>
-            </div>
-        </div>
-    </section>
-</div>
+
 <div class="column is-12">
     <div class="box">
-        <h3 class="title">注册:</h3>
+        <h3 class="title">Sign up!</h3>
         <form class="form" action="{% url 'sspanel:register' %}" method="post">
             {% csrf_token %} {% for field in form %}
             {{ field.label_tag }}
@@ -28,10 +15,10 @@
             <hr>
             <div class="field is-grouped">
                 <p class="control">
-                    <button type="submit" class="button is-primary is-outlined">注册吧少年！</button>
+                    <button type="submit" class="button is-primary">Sign up!</button>
                 </p>
                 <p class="control">
-                    <a class="button is-info is-outlined " href="{% url 'sspanel:login' %}">刚注册过了？</a>
+                    <a class="button is-info is-text" href="{% url 'sspanel:login' %}">Login</a>
                 </p>
             </div>
         </form>

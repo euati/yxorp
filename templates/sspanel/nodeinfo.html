@@ -20,8 +20,8 @@
                 <div class="card-header" >
                     {% if node.online == True %}
                     <p class="card-header-title">
-                        <span class="tag is-primary is-hidden-mobile" style="margin-right: 5px;">SS</span>
-                        <span class="tag is-success">Available</span>&nbsp;{{ node.name }}
+                        <span class="tag is-primary is-hidden-mobile" >SS</span>
+                        <span class="tag is-success" >Available</span>&nbsp;{{ node.name }}
                     </p>
                     {% else %}
                     <p class="card-header-title">
@@ -101,7 +101,7 @@
                         <div class="modal-background"></div>
                         <div class="modal-card">
                             <header class="modal-card-head">
-                                <p class="modal-card-title">Server:
+                                <p class="modal-card-title">
                                     <strong>{{ node.name }}</strong> QR code</p>
                                 <button class="delete" aria-label="close"></button>
                             </header>
@@ -255,7 +255,7 @@
                         <div class="modal-background"></div>
                         <div class="modal-card">
                             <header class="modal-card-head">
-                                <p class="modal-card-title">Server:
+                                <p class="modal-card-title">
                                     <strong>{{ node.name }}</strong> QR code</p>
                                 <button class="delete" aria-label="close"></button>
                             </header>
