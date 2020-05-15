@@ -26,7 +26,7 @@
                 {% settings_value "USE_SMTP" as use_smtp %}
                 {% if use_smtp %}
                 <p class="control">
-                    <a class="button is-info" href="{% url 'password_reset' %}">Forgotten password</a>
+                    <a class="button is-white is-text" href="{% url 'password_reset' %}">Forgotten password</a>
                 </p>
                 {% endif %}
             </div>
