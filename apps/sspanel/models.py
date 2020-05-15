@@ -146,7 +146,7 @@ class User(AbstractUser):
         return cls.objects.filter(pk=pk).first()
 
     @classmethod
-    def check_and_disable_expired_users(cls)
+    def check_and_disable_expired_users(cls):
     # Проверка и отключение пользователя
         now = pendulum.now()
         expired_users = list(
