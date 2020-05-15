@@ -40,20 +40,20 @@ class User(AbstractUser):
     SUB_TYPE_CLASH = 3
     SUB_TYPES_SET = {SUB_TYPE_SS, SUB_TYPE_VMESS, SUB_TYPE_ALL, SUB_TYPE_CLASH}
     SUB_TYPES = (
-        (SUB_TYPE_SS, "只订阅SS"),
-        (SUB_TYPE_VMESS, "只订阅Vmess"),
-        (SUB_TYPE_ALL, "订阅所有"),
-        (SUB_TYPE_CLASH, "通过Clash订阅所有"),
+        (SUB_TYPE_SS, "Subscribe only to SS"),
+        (SUB_TYPE_VMESS, "Subscribe to Vmess only"),
+        (SUB_TYPE_ALL, "Subscribe to all"),
+        (SUB_TYPE_CLASH, "Subscribe all through Clash"),
     )
 
     MIN_PORT = 1025
     PORT_BLACK_SET = {6443, 8472}
 
     class Meta(AbstractUser.Meta):
-        verbose_name_plural = "用户"
+        verbose_name_plural = "User"
 
     balance = models.DecimalField(
-        verbose_name="余额",
+        verbose_name="Balance",
         decimal_places=2,
         max_digits=10,
         default=0,
@@ -62,38 +62,38 @@ class User(AbstractUser):
         blank=True,
     )
     invitecode_num = models.PositiveIntegerField(
-        verbose_name="可生成的邀请码数量", default=settings.INVITE_NUM
+        verbose_name="Number of invitation codes that can be generated", default=settings.INVITE_NUM
     )
     level = models.PositiveIntegerField(
-        verbose_name="用户等级", default=0, validators=[MinValueValidator(0)]
+        verbose_name="User lvl", default=0, validators=[MinValueValidator(0)]
     )
-    level_expire_time = models.DateTimeField(verbose_name="等级有效期", default=timezone.now)
+    level_expire_time = models.DateTimeField(verbose_name="Expire time", default=timezone.now)
     theme = models.CharField(
-        verbose_name="主题",
+        verbose_name="Theme",
         choices=THEME_CHOICES,
         default=settings.DEFAULT_THEME,
         max_length=10,
     )
     sub_type = models.SmallIntegerField(
-        verbose_name="订阅类型", choices=SUB_TYPES, default=SUB_TYPE_ALL
+        verbose_name="Subscription type", choices=SUB_TYPES, default=SUB_TYPE_ALL
     )
-    inviter_id = models.PositiveIntegerField(verbose_name="邀请人id", default=1)
+    inviter_id = models.PositiveIntegerField(verbose_name="Inviter id", default=1)
 
     # v2ray相关
     vmess_uuid = models.CharField(verbose_name="Vmess uuid", max_length=64, default="")
 
-    ss_port = models.IntegerField("端口", unique=True, default=MIN_PORT)
+    ss_port = models.IntegerField("Port", unique=True, default=MIN_PORT)
     ss_password = models.CharField(
-        "密码", max_length=32, default=get_short_random_string, unique=True
+        "Password", max_length=32, default=get_short_random_string, unique=True
     )
     ss_method = models.CharField(
-        "加密", default=settings.DEFAULT_METHOD, max_length=32, choices=METHOD_CHOICES
+        "Encryption", default=settings.DEFAULT_METHOD, max_length=32, choices=METHOD_CHOICES
     )
     # 流量相关
-    upload_traffic = models.BigIntegerField("上传流量", default=0)
-    download_traffic = models.BigIntegerField("下载流量", default=0)
-    total_traffic = models.BigIntegerField("总流量", default=settings.DEFAULT_TRAFFIC)
-    last_use_time = models.DateTimeField("上次使用时间", blank=True, db_index=True, null=True)
+    upload_traffic = models.BigIntegerField("Upload traffic", default=0)
+    download_traffic = models.BigIntegerField("Download traffic", default=0)
+    total_traffic = models.BigIntegerField("Total", default=settings.DEFAULT_TRAFFIC)
+    last_use_time = models.DateTimeField("Last used time", blank=True, db_index=True, null=True)
 
     def __str__(self):
         return self.username
@@ -146,7 +146,8 @@ class User(AbstractUser):
         return cls.objects.filter(pk=pk).first()
 
     @classmethod
-    def check_and_disable_expired_users(cls):
+    def check_and_disable_expired_users(cls)
+    # Проверка и отключение пользователя
         now = pendulum.now()
         expired_users = list(
             cls.objects.filter(level__gt=0, level_expire_time__lte=now)
@@ -469,10 +470,10 @@ class UserOrder(models.Model, UserPropertyMixin):
 class UserRefLog(models.Model, UserPropertyMixin):
     user_id = models.PositiveIntegerField()
     register_count = models.IntegerField(default=0)
-    date = models.DateField("记录日期", default=pendulum.today, db_index=True)
+    date = models.DateField("Record date", default=pendulum.today, db_index=True)
 
     class Meta:
-        verbose_name_plural = "用户推荐记录"
+        verbose_name_plural = "User recommendation record"
         unique_together = [["user_id", "date"]]
 
     @classmethod
@@ -496,7 +497,7 @@ class UserRefLog(models.Model, UserPropertyMixin):
         bar_config = {
             "labels": [f"{date.month}-{date.day}" for date in date_list],
             "data": [logs.get(date, 0) for date in date_list],
-            "data_title": "每日邀请注册人数",
+            "data_title": "Daily registration",
         }
         return bar_config
 
@@ -509,7 +510,7 @@ class UserOnLineIpLog(models.Model, UserPropertyMixin):
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     class Meta:
-        verbose_name_plural = "用户在线IP"
+        verbose_name_plural = "User online IP"
         ordering = ["-created_at"]
         index_together = ["node_id", "created_at"]
 
@@ -535,11 +536,11 @@ class UserOnLineIpLog(models.Model, UserPropertyMixin):
 
 class UserCheckInLog(models.Model, UserPropertyMixin):
     user_id = models.PositiveIntegerField()
-    date = models.DateField("记录日期", default=pendulum.today, db_index=True)
-    increased_traffic = models.BigIntegerField("增加的流量", default=0)
+    date = models.DateField("Record date", default=pendulum.today, db_index=True)
+    increased_traffic = models.BigIntegerField("Increased traffic", default=0)
 
     class Meta:
-        verbose_name_plural = "用户签到记录"
+        verbose_name_plural = "User check-in record"
         unique_together = [["user_id", "date"]]
 
     @classmethod
@@ -573,10 +574,10 @@ class UserTraffic(models.Model, UserPropertyMixin):
     # TODO delete this table
 
     user_id = models.IntegerField(unique=True, db_index=True)
-    upload_traffic = models.BigIntegerField("上传流量", default=0)
-    download_traffic = models.BigIntegerField("下载流量", default=0)
-    total_traffic = models.BigIntegerField("总流量", default=settings.DEFAULT_TRAFFIC)
-    last_use_time = models.DateTimeField("上次使用时间", blank=True, db_index=True, null=True)
+    upload_traffic = models.BigIntegerField("Upload traffic", default=0)
+    download_traffic = models.BigIntegerField("Download traffic", default=0)
+    total_traffic = models.BigIntegerField("Total", default=settings.DEFAULT_TRAFFIC)
+    last_use_time = models.DateTimeField("Last used time", blank=True, db_index=True, null=True)
 
     class Meta:
         verbose_name_plural = "用户流量"
@@ -593,14 +594,14 @@ class NodeOnlineLog(models.Model):
 
     node_id = models.IntegerField()
     node_type = models.CharField(
-        "节点类型", default=NODE_TYPE_SS, choices=NODE_CHOICES, max_length=32
+        "Node type", default=NODE_TYPE_SS, choices=NODE_CHOICES, max_length=32
     )
     online_user_count = models.IntegerField(default=0)
     active_tcp_connections = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     class Meta:
-        verbose_name_plural = "节点在线记录"
+        verbose_name_plural = "Node Online Record"
         ordering = ["-created_at"]
         index_together = ["node_type", "node_id", "created_at"]
 
@@ -661,16 +662,16 @@ class BaseAbstractNode(models.Model):
 
     node_id = models.IntegerField(unique=True)
     level = models.PositiveIntegerField(default=0)
-    name = models.CharField("名字", max_length=32)
-    info = models.CharField("节点说明", max_length=1024)
+    name = models.CharField("Name", max_length=32)
+    info = models.CharField("Node description", max_length=1024)
     country = models.CharField(
-        "国家", default="CN", max_length=5, choices=COUNTRIES_CHOICES
+        "country", default="CN", max_length=5, choices=COUNTRIES_CHOICES
     )
-    used_traffic = models.BigIntegerField("已用流量", default=0)
-    total_traffic = models.BigIntegerField("总流量", default=settings.GB)
-    enable = models.BooleanField("是否开启", default=True, db_index=True)
+    used_traffic = models.BigIntegerField("Used traffic", default=0)
+    total_traffic = models.BigIntegerField("Total traffic", default=settings.GB)
+    enable = models.BooleanField("Whether to open", default=True, db_index=True)
     enlarge_scale = models.DecimalField(
-        "倍率", default=Decimal("1.0"), decimal_places=2, max_digits=10,
+        "magnification", default=Decimal("1.0"), decimal_places=2, max_digits=10,
     )
 
     class Meta:
@@ -756,19 +757,19 @@ class VmessNode(BaseAbstractNode):
         },
     }
 
-    server = models.CharField("服务器地址", max_length=128)
-    inbound_tag = models.CharField("标签", default="proxy", max_length=64)
-    service_port = models.IntegerField("服务端端口", default=10086)
-    client_port = models.IntegerField("客户端端口", default=10086)
-    alter_id = models.IntegerField("额外ID数量", default=1)
-    listen_host = models.CharField("本地监听地址", max_length=64, default="0.0.0.0")
-    grpc_host = models.CharField("Grpc地址", max_length=64, default="0.0.0.0")
-    grpc_port = models.CharField("Grpc端口", max_length=64, default="8080")
-    ws_host = models.CharField("域名", max_length=64, blank=True, null=True)
+    server = models.CharField("IP address", max_length=128)
+    inbound_tag = models.CharField("label", default="proxy", max_length=64)
+    service_port = models.IntegerField("Service port", default=10086)
+    client_port = models.IntegerField("Client port", default=10086)
+    alter_id = models.IntegerField("Number of additional IDs", default=1)
+    listen_host = models.CharField("Local listening address", max_length=64, default="0.0.0.0")
+    grpc_host = models.CharField("Grpc address", max_length=64, default="0.0.0.0")
+    grpc_port = models.CharField("Grpc port", max_length=64, default="8080")
+    ws_host = models.CharField("domain name", max_length=64, blank=True, null=True)
     ws_path = models.CharField("ws_path", max_length=64, blank=True, null=True)
 
     class Meta:
-        verbose_name_plural = "Vmess节点"
+        verbose_name_plural = "Vmess server"
 
     def __str__(self):
         return self.name
@@ -842,7 +843,7 @@ class VmessNode(BaseAbstractNode):
     @property
     def human_speed_limit(self):
         # NOTE vemss目前不支持限速
-        return "不限速"
+        return "Unlimited speed"
 
     @property
     def api_endpoint(self):
@@ -1053,16 +1054,16 @@ class SSNode(BaseAbstractNode):
     KB = 1024
     MEGABIT = KB * 125
 
-    server = models.CharField("服务器地址", max_length=128)
+    server = models.CharField("ip address", max_length=128)
     method = models.CharField(
-        "加密类型", default=settings.DEFAULT_METHOD, max_length=32, choices=METHOD_CHOICES
+        "Encryption type", default=settings.DEFAULT_METHOD, max_length=32, choices=METHOD_CHOICES
     )
-    custom_method = models.BooleanField("自定义加密", default=False)
-    speed_limit = models.IntegerField("限速", default=0)
-    port = models.IntegerField("单端口", help_text="单端口多用户端口", null=True, blank=True)
+    custom_method = models.BooleanField("Custom encryption", default=False)
+    speed_limit = models.IntegerField("Speed limit", default=0)
+    port = models.IntegerField("Single port", help_text="Single port multi-user port", null=True, blank=True)
 
     class Meta:
-        verbose_name_plural = "SS节点"
+        verbose_name_plural = "SS server"
 
     @classmethod
     @cache.cached(ttl=60 * 60 * 24)
@@ -1108,7 +1109,7 @@ class SSNode(BaseAbstractNode):
         if self.speed_limit != 0:
             return f"{round(self.speed_limit / self.MEGABIT, 1)} Mbps"
         else:
-            return "不限速"
+            return "Unlimited speed"
 
     @property
     def api_endpoint(self):
@@ -1164,15 +1165,15 @@ class UserTrafficLog(models.Model, UserPropertyMixin):
 
     user_id = models.IntegerField()
     node_type = models.CharField(
-        "节点类型", default=NODE_TYPE_SS, choices=NODE_CHOICES, max_length=32
+        "Node type", default=NODE_TYPE_SS, choices=NODE_CHOICES, max_length=32
     )
     node_id = models.IntegerField()
     date = models.DateField(auto_now_add=True, db_index=True)
-    upload_traffic = models.BigIntegerField("上传流量", default=0)
-    download_traffic = models.BigIntegerField("下载流量", default=0)
+    upload_traffic = models.BigIntegerField("Upload traffic", default=0)
+    download_traffic = models.BigIntegerField("Download traffic", default=0)
 
     class Meta:
-        verbose_name_plural = "流量记录"
+        verbose_name_plural = "Flow record"
         ordering = ["-date"]
         index_together = ["user_id", "node_type", "node_id", "date"]
 
@@ -1214,15 +1215,15 @@ class UserTrafficLog(models.Model, UserPropertyMixin):
         user_total_traffic = cls.calc_user_total_traffic(node_type, node_id, user_id)
         date_list = sorted(date_list)
         line_config = {
-            "title": "节点 {} 当月共消耗：{}".format(node.name, user_total_traffic),
+            "title": "Nodes {} consumed in the month:{}".format(node.name, user_total_traffic),
             "labels": ["{}-{}".format(t.month, t.day) for t in date_list],
             "data": [
                 cls.calc_user_traffic_by_date(user_id, node_type, node_id, date)
                 for date in date_list
             ],
             "data_title": node.name,
-            "x_label": "日期 最近七天",
-            "y_label": "流量 单位：MB",
+            "x_label": "Date Last seven days",
+            "y_label": "Flow unit：MB",
         }
         return line_config
 
@@ -1232,27 +1233,27 @@ class InviteCode(models.Model):
 
     TYPE_PUBLIC = 1
     TYPE_PRIVATE = 0
-    INVITE_CODE_TYPE = ((TYPE_PUBLIC, "公开"), (TYPE_PRIVATE, "不公开"))
+    INVITE_CODE_TYPE = ((TYPE_PUBLIC, "public"), (TYPE_PRIVATE, "private"))
 
     code = models.CharField(
-        verbose_name="邀请码",
+        verbose_name="Invitation code",
         primary_key=True,
         blank=True,
         max_length=40,
         default=get_long_random_string,
     )
     code_type = models.IntegerField(
-        verbose_name="类型", choices=INVITE_CODE_TYPE, default=TYPE_PRIVATE
+        verbose_name="Types of", choices=INVITE_CODE_TYPE, default=TYPE_PRIVATE
     )
-    user_id = models.PositiveIntegerField(verbose_name="邀请人ID", default=1)
-    used = models.BooleanField(verbose_name="是否使用", default=False)
+    user_id = models.PositiveIntegerField(verbose_name="Inviter ID", default=1)
+    used = models.BooleanField(verbose_name="use or not", default=False)
     created_at = models.DateTimeField(editable=False, auto_now_add=True)
 
     def __str__(self):
         return f"<{self.user_id}>-<{self.code}>"
 
     class Meta:
-        verbose_name_plural = "邀请码"
+        verbose_name_plural = "Invitation code"
         ordering = ("used", "-created_at")
 
     @classmethod
@@ -1287,12 +1288,12 @@ class InviteCode(models.Model):
 class RebateRecord(models.Model, UserPropertyMixin):
     """返利记录"""
 
-    user_id = models.PositiveIntegerField(verbose_name="返利人ID", default=1)
+    user_id = models.PositiveIntegerField(verbose_name="Rebate ID", default=1)
     consumer_id = models.PositiveIntegerField(
-        verbose_name="消费者ID", null=True, blank=True
+        verbose_name="Consumer ID", null=True, blank=True
     )
     money = models.DecimalField(
-        verbose_name="金额",
+        verbose_name="Amount",
         decimal_places=2,
         null=True,
         default=0,
@@ -1302,7 +1303,7 @@ class RebateRecord(models.Model, UserPropertyMixin):
     created_at = models.DateTimeField(editable=False, auto_now_add=True)
 
     class Meta:
-        verbose_name_plural = "返利记录"
+        verbose_name_plural = "Rebate record"
         ordering = ("-created_at",)
 
     @classmethod
@@ -1364,24 +1365,24 @@ class Donate(models.Model):
 class MoneyCode(models.Model):
     """充值码"""
 
-    user = models.CharField(verbose_name="用户名", max_length=128, blank=True, null=True)
-    time = models.DateTimeField("捐赠时间", editable=False, auto_now_add=True)
+    user = models.CharField(verbose_name="username", max_length=128, blank=True, null=True)
+    time = models.DateTimeField("Donation time", editable=False, auto_now_add=True)
     code = models.CharField(
-        verbose_name="充值码",
+        verbose_name="Recharge code",
         unique=True,
         blank=True,
         max_length=40,
         default=get_long_random_string,
     )
     number = models.DecimalField(
-        verbose_name="捐赠金额",
+        verbose_name="Donation amount",
         decimal_places=2,
         max_digits=10,
         default=10,
         null=True,
         blank=True,
     )
-    isused = models.BooleanField(verbose_name="是否使用", default=False)
+    isused = models.BooleanField(verbose_name="use or not", default=False)
 
     def clean(self):
         # 保证充值码不会重复
@@ -1395,20 +1396,20 @@ class MoneyCode(models.Model):
         return self.code
 
     class Meta:
-        verbose_name_plural = "充值码"
+        verbose_name_plural = "Recharge code"
         ordering = ("isused",)
 
 
 class Goods(models.Model):
     """商品"""
 
-    STATUS_TYPE = ((1, "上架"), (-1, "下架"))
+    STATUS_TYPE = ((1, "On"), (-1, "Off"))
 
-    name = models.CharField(verbose_name="商品名字", max_length=128, default="待编辑")
-    content = models.CharField(verbose_name="商品描述", max_length=256, default="待编辑")
-    transfer = models.BigIntegerField(verbose_name="增加的流量", default=settings.GB)
+    name = models.CharField(verbose_name="Product name", max_length=128, default="To be edited")
+    content = models.CharField(verbose_name="product description", max_length=256, default="To be edited")
+    transfer = models.BigIntegerField(verbose_name="Increased traffic", default=settings.GB)
     money = models.DecimalField(
-        verbose_name="金额",
+        verbose_name="Amount",
         decimal_places=2,
         max_digits=10,
         default=0,
@@ -1416,20 +1417,20 @@ class Goods(models.Model):
         blank=True,
     )
     level = models.PositiveIntegerField(
-        verbose_name="设置等级",
+        verbose_name="Set level",
         default=0,
         validators=[MaxValueValidator(9), MinValueValidator(0)],
     )
     days = models.PositiveIntegerField(
-        verbose_name="设置等级时间(天)",
+        verbose_name="Set level time (days)",
         default=1,
         validators=[MaxValueValidator(365), MinValueValidator(1)],
     )
-    status = models.SmallIntegerField("商品状态", default=1, choices=STATUS_TYPE)
-    order = models.PositiveSmallIntegerField("排序", default=1)
+    status = models.SmallIntegerField("Commodity status", default=1, choices=STATUS_TYPE)
+    order = models.PositiveSmallIntegerField("Sort", default=1)
 
     class Meta:
-        verbose_name_plural = "商品"
+        verbose_name_plural = "Product"
         ordering = ["order"]
 
     def __str__(self):
@@ -1482,23 +1483,23 @@ class Goods(models.Model):
 class PurchaseHistory(models.Model):
     """购买记录"""
 
-    good_name = models.CharField(verbose_name="商品名", max_length=128, db_index=True)
-    user = models.CharField(verbose_name="购买者", max_length=128)
+    good_name = models.CharField(verbose_name="Product name", max_length=128, db_index=True)
+    user = models.CharField(verbose_name="buyers", max_length=128)
     money = models.DecimalField(
-        verbose_name="金额",
+        verbose_name="Amount",
         decimal_places=2,
         max_digits=10,
         default=0,
         null=True,
         blank=True,
     )
-    created_at = models.DateTimeField("购买时间", editable=False, auto_now_add=True)
+    created_at = models.DateTimeField("Purchase time", editable=False, auto_now_add=True)
 
     def __str__(self):
         return self.user
 
     class Meta:
-        verbose_name_plural = "购买记录"
+        verbose_name_plural = "Purchase History"
         ordering = ("-created_at",)
 
     @classmethod
@@ -1507,13 +1508,13 @@ class PurchaseHistory(models.Model):
         end = pendulum.parse(end, tz=timezone.get_current_timezone())
         good = Goods.objects.filter(pk=good_id).first()
         if not good:
-            print("商品不存在")
+            print("Product does not exist")
             return
         query = cls.objects.filter(good_name=good.name, created_at__range=[start, end])
         count = query.count()
         amount = count * good.money
         print(
-            "{} ~ {} 时间内 商品: {} 共销售 {} 次 总金额 {} 元".format(
+            "{} ~ {} Within time: {} total sales {} times total amount {} 元".format(
                 start.date(), end.date(), good, count, amount
             )
         )
@@ -1536,8 +1537,8 @@ class PurchaseHistory(models.Model):
 class Announcement(models.Model):
     """公告界面"""
 
-    time = models.DateTimeField("时间", auto_now_add=True)
-    body = models.TextField("主体")
+    time = models.DateTimeField("time", auto_now_add=True)
+    body = models.TextField("main body")
 
     def __str__(self):
         return "日期:{}".format(str(self.time)[:9])
@@ -1548,7 +1549,7 @@ class Announcement(models.Model):
         super(Announcement, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name_plural = "系统公告"
+        verbose_name_plural = "system notification"
         ordering = ("-time",)
 
     @classmethod
@@ -1557,7 +1558,7 @@ class Announcement(models.Model):
         if not anno or request.session.get("first_visit"):
             return
         request.session["first_visit"] = True
-        messages.warning(request, anno.plain_text, extra_tags="最新通知！")
+        messages.warning(request, anno.plain_text, extra_tags="Latest notification!")
 
     @property
     def plain_text(self):
@@ -1575,32 +1576,32 @@ class Ticket(models.Model):
     """工单"""
 
     TICKET_CHOICE = ((1, "开启"), (-1, "关闭"))
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="用户")
-    time = models.DateTimeField(verbose_name="时间", editable=False, auto_now_add=True)
-    title = models.CharField(verbose_name="标题", max_length=128)
-    body = models.TextField(verbose_name="内容主体")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="user")
+    time = models.DateTimeField(verbose_name="time", editable=False, auto_now_add=True)
+    title = models.CharField(verbose_name="title", max_length=128)
+    body = models.TextField(verbose_name="content body")
     status = models.SmallIntegerField(
-        verbose_name="状态", choices=TICKET_CHOICE, default=1
+        verbose_name="status", choices=TICKET_CHOICE, default=1
     )
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name_plural = "工单"
+        verbose_name_plural = "Work order"
         ordering = ("-time",)
 
 
 class EmailSendLog(models.Model):
     """邮件发送记录"""
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="用户")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="user")
     subject = models.CharField(max_length=128, db_index=True)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     class Meta:
-        verbose_name_plural = "邮件发送记录"
+        verbose_name_plural = "Mailing record"
 
     @classmethod
     def send_mail_to_users(cls, users, subject, message):

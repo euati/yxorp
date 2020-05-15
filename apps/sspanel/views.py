@@ -79,10 +79,10 @@ class UserLogInView(View):
             )
             if user and user.is_active:
                 login(request, user)
-                messages.success(request, "自动跳转到用户中心", extra_tags="登录成功！")
+                messages.success(request, "You will automatically be taken to the personal account", extra_tags="Success")
                 return HttpResponseRedirect(reverse("sspanel:userinfo"))
             else:
-                messages.error(request, "请重新填写信息！", extra_tags="登录失败！")
+                messages.error(request, "Please enter data correctly", extra_tags="ERROR")
 
         context = {"form": LoginForm()}
         return render(request, "sspanel/login.html", context=context)
@@ -95,7 +95,7 @@ class UserLogInView(View):
 class UserLogOutView(View):
     def get(self, request):
         logout(request)
-        messages.warning(request, "欢迎下次再来", extra_tags="注销成功")
+        messages.warning(request, "Thank you for spending time with us", extra_tags="Successful Exit")
         return HttpResponseRedirect(reverse("sspanel:index"))
 
 
@@ -124,7 +124,7 @@ class AffStatusView(LoginRequiredMixin, View):
         bar_config = {
             "labels": ["z", "v", "x", "x", "z", "v", "x", "x", "z", "v"],
             "data": [1, 2, 3, 4, 1, 1, 1, 1, 1, 2],
-            "data_title": "每日邀请注册人数",
+            "data_title": "Daily registration number",
         }
         context = {"rebate_logs": rebate_logs, "user": user, "bar_config": bar_config}
         return render(request, "sspanel/aff_status.html", context=context)

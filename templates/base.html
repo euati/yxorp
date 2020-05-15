@@ -26,7 +26,7 @@
                 <a class="navbar-item" href="{% url 'sspanel:help' %}">How to install</a>
                 <a class="navbar-item" href="{% url 'sspanel:invite_code' %}">Invitations</a>
                 {% if user.is_authenticated %}
-                <a class="navbar-item" href="{% url 'sspanel:client' %}">客户端</a>
+                <a class="navbar-item" href="{% url 'sspanel:client' %}">Download</a>
                 <div class="navbar-item has-dropdown is-hoverable is-hidden-mobile">
                     <span class="navbar-item">
                         <a class="button is-info is-inverted" href="{% url 'sspanel:userinfo' %}">
@@ -54,16 +54,16 @@
                 </div>
                 <!-- 手机界面菜单-->
                 <div class="is-hidden-tablet">
-                    <a class="navbar-item is-active">Information:</a>
+                    <!-- <a class="navbar-item is-active">Information:</a> -->
                     <a class="navbar-item" href="{% url 'sspanel:userinfo' %}">Personal account</a>
                     <a class="navbar-item" href="{% url 'sspanel:announcement' %}">News</a>
-                    <a class="navbar-item" href="{% url 'sspanel:tickets' %}">Tickets</a>
+                    <!-- <a class="navbar-item" href="{% url 'sspanel:tickets' %}">Tickets</a> -->
                     <a class="navbar-item is-active">Nodes:</a>
                     <a class="navbar-item" href="{% url 'sspanel:nodeinfo' %}">All Servers</a>
-                    <a class="navbar-item" href="{% url 'sspanel:user_traffic_log' %}">Traffic info</a>
+                    <!-- <a class="navbar-item" href="{% url 'sspanel:user_traffic_log' %}">Traffic info</a> -->
                     <a class="navbar-item is-active">Payment:</a>
-                    <a class="navbar-item" href="{% url 'sspanel:donate' %}">Donate</a>
-                    <a class="navbar-item" href="{% url 'sspanel:chargecenter' %}">Top up</a>
+                    <!-- <a class="navbar-item" href="{% url 'sspanel:donate' %}">Donate</a>
+                    <a class="navbar-item" href="{% url 'sspanel:chargecenter' %}">Top up</a> -->
                     <a class="navbar-item" href="{% url 'sspanel:shop' %}">Buy</a>
                     <a class="navbar-item" href="{% url 'sspanel:purchaselog' %}">Purchase history</a>
                     <a class="navbar-item is-active">Invitations:</a>
@@ -89,9 +89,9 @@
                             Information:
                         </p>
                         <ul class="menu-list">
-                            <li>
+                            <!-- <li>
                                 <a class="" href="{% url 'sspanel:userinfo' %}">Personal account</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="{% url 'sspanel:announcement' %}">News</a>
                             </li>
@@ -106,20 +106,20 @@
                             <li>
                                 <a href="{% url 'sspanel:nodeinfo' %}">All Servers</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="{% url 'sspanel:user_traffic_log' %}">Traffic info</a>
-                            </li>
+                            </li> -->
                         </ul>
                         <p class="menu-label">
                             Payment:
                         </p>
                         <ul class="menu-list">
-                            <li>
+                            <!-- <li>
                                 <a href="{% url 'sspanel:donate' %}">Donate</a>
                             </li>
                             <li>
                                 <a href="{% url 'sspanel:chargecenter' %}">Top up</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="{% url 'sspanel:shop' %}">Buy</a>
                             </li>

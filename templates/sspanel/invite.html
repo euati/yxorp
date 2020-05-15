@@ -4,7 +4,7 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    邀请码列表：
+                    Public Invitations: 
                 </h1>
                 <h2 class="subtitle">
                     {% settings_value "INVITEINFO" %}
@@ -20,8 +20,8 @@
             <table class="table is-striped">
                 <thead>
                     <tr>
-                        <th>创建时间:</th>
-                        <th>邀请码:</th>
+                        <th>Time of creation:</th>
+                        <th>Code:</th>
                     </tr>
                 </thead>
                 {% for code in code_list %}
@@ -34,9 +34,9 @@
                     </td>
                 </tr>
                 {% empty %}
-                <h2 class="subtitle">
-                    哦哦哦，用完了！
-                </h2>
+                <h4 class="subtitle">
+                    If there are no public invitations contact the administrator by mail admin@yxorp.xyz 
+                </h4>
                 {% endfor %}
             </table>
         </div>

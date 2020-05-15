@@ -17,35 +17,35 @@ class RegisterForm(UserCreationForm):
     """注册时渲染的表单"""
 
     username = forms.CharField(
-        label="用户名",
-        help_text="必填。150个字符或者更少。包含字母，数字和仅有的@/./+/-/_符号。",
+        label="Username",
+        help_text="Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.",
         widget=forms.TextInput(attrs={"class": "input is-info"}),
     )
 
     email = forms.EmailField(
-        label="邮箱", widget=forms.TextInput(attrs={"class": "input is-warning"})
+        label="Email", widget=forms.TextInput(attrs={"class": "input is-warning"})
     )
     password1 = forms.CharField(
-        label="密码",
-        help_text="""你的密码不能与其他个人信息太相似。
-                                                        你的密码必须包含至少 8 个字符。
-                                                        你的密码不能是大家都爱用的常见密码
-                                                        你的密码不能全部为数字。""",
+        label="Password",
+        help_text="""Your password can't be too similar to your other personal information.
+                                                        Your password must contain at least 8 characters.
+                                                        Your password can't be a commonly used password.
+                                                        Your password can't be entirely numeric.""",
         widget=forms.TextInput(attrs={"class": "input is-primary", "type": "password"}),
     )
     password2 = forms.CharField(
-        label="重复密码",
+        label="Repeat password",
         widget=forms.TextInput(attrs={"class": "input is-danger", "type": "password"}),
     )
 
     invitecode = forms.CharField(
-        label="邀请码",
-        help_text="邀请码必须填写",
+        label="Invitation code",
+        help_text="Invitation code must be filled",
         widget=forms.TextInput(attrs={"class": "input is-success"}),
     )
 
     ref = forms.CharField(
-        label="邀请", widget=forms.TextInput(attrs={"class": "input is-success"})
+        label="invite", widget=forms.TextInput(attrs={"class": "input is-success"})
     )
 
     def __init__(self, *args, **kw):
@@ -58,7 +58,7 @@ class RegisterForm(UserCreationForm):
     def clean_email(self):
         email = self.cleaned_data.get("email")
         if User.objects.filter(email=email).first():
-            raise forms.ValidationError("该邮箱已经注册过了")
+            raise forms.ValidationError("This mailbox has already been registered")
         else:
             return email
 
@@ -80,19 +80,19 @@ class RegisterForm(UserCreationForm):
         if InviteCode.objects.filter(code=code, used=False).exists():
             return code
         else:
-            raise forms.ValidationError("该邀请码失效")
+            raise forms.ValidationError("The invitation code is invalid")
 
     def _clean_ref(self):
         ref = self.cleaned_data.get("ref")
         try:
             user_id = int(ref)
         except ValueError:
-            raise forms.ValidationError("ref不正确")
+            raise forms.ValidationError("ref is incorrect")
 
         if User.objects.filter(id=user_id).exists():
             return ref
         else:
-            raise forms.ValidationError("ref不正确")
+            raise forms.ValidationError("ref is incorrect")
 
     class Meta(UserCreationForm.Meta):
         model = User
@@ -102,24 +102,24 @@ class RegisterForm(UserCreationForm):
 class LoginForm(forms.Form):
     username = forms.CharField(
         required=True,
-        label=u"用户名",
-        error_messages={"required": "请输入用户名"},
+        label=u"Username",
+        error_messages={"required": "Email or username"},
         widget=forms.TextInput(
-            attrs={"class": "input is-primary", "placeholder": "用户名"}
+            attrs={"class": "input is-primary", "placeholder": "example@mail.com"}
         ),
     )
     password = forms.CharField(
         required=True,
-        label=u"密码",
-        error_messages={"required": u"请输入密码"},
+        label=u"Password",
+        error_messages={"required": u"Please enter the password"},
         widget=forms.PasswordInput(
-            attrs={"class": "input is-primary", "placeholder": "密码", "type": "password"}
+            attrs={"class": "input is-primary", "placeholder": "password", "type": "password"}
         ),
     )
 
     def clean(self):
         if not self.is_valid():
-            raise forms.ValidationError(u"用户名和密码为必填项")
+            raise forms.ValidationError(u"Username and password are required")
         else:
             self.cleaned_data = super(LoginForm, self).clean()
 
@@ -150,7 +150,7 @@ class SSNodeForm(ModelForm):
             self.cleaned_data.get("port")
             and self.cleaned_data.get("method") not in AEAD_METHODS
         ):
-            raise forms.ValidationError("当前加密方式不支持单端口多用户")
+            raise forms.ValidationError("The current encryption method does not support single-port multi-user")
 
     def clean_port(self):
         self._clean_one_port_many_user()
