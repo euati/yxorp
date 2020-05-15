@@ -67,7 +67,6 @@
         </div>
         <div class="tile is-7 is-vertical is-parent">
 
-            <div class="tile box is-child">
                 <div class="modal nodeinfo" id="modal-sub">
                     <div class="modal-background"></div>
                     <div class="modal-card">
@@ -134,47 +133,8 @@
                         </section>
                     </div>
                 </div>
-                <article class="message is-active">
-                    <div class="message-header">
-                        <p>Traffic information</p>
-                    </div>
 
-                    <div class="message-body">
-                        <div class="columns">
-                            <div class="column">
-                                <li>Total:
-                                    <code>{{ user.human_total_traffic }}</code>
-                                </li>
-                            </div>
-                            <div class="column">
-                                <progress class="progress is-success" value="100" max="100"></progress>
-                            </div>
-                        </div>
-                        <div class="columns">
-                            <div class="column">
-                                <li>Left:
-                                    <code>{{ user.human_remain_traffic }} </code>
-                                </li>
-                            </div>
-                            <div class="column">
-                                <progress class="progress is-success" value="{{ user.remain_percentage }}"
-                                    max="100"></progress>
-                            </div>
-                        </div>
-                        <!-- <div class="columns">
-                            <div class="column">
-                                <li>Used:
-                                    <code>{{ user.human_used_traffic }}</code> </li>
-                            </div>
-                            <div class="column">
-                                <progress class="progress is-danger" value="{{ user.used_percentage }}"
-                                    max="100"></progress>
-                            </div>
-                        </div> -->
-                    </div>
-                </article>
-
-                <article class="message is-active">
+                <article class="message is-light">
                     <div class="message-header">
                         <p>Personal information</p>
                     </div>
@@ -209,11 +169,41 @@
                         <li>Last used time:
                             <code>{{ user.last_use_time}}</code>
                         </li>
-
+                        <div class="columns">
+                            <div class="column">
+                                <li>Total:
+                                    <code>{{ user.human_total_traffic }}</code>
+                                </li>
+                            </div>
+                            <div class="column">
+                                <progress class="progress is-success" value="100" max="100"></progress>
+                            </div>
+                        </div>
+                        <div class="columns">
+                            <div class="column">
+                                <li>Left:
+                                    <code>{{ user.human_remain_traffic }} </code>
+                                </li>
+                            </div>
+                            <div class="column">
+                                <progress class="progress is-success" value="{{ user.remain_percentage }}"
+                                    max="100"></progress>
+                            </div>
+                        </div>
+                        <!-- <div class="columns">
+                            <div class="column">
+                                <li>Used:
+                                    <code>{{ user.human_used_traffic }}</code> </li>
+                            </div>
+                            <div class="column">
+                                <progress class="progress is-danger" value="{{ user.used_percentage }}"
+                                    max="100"></progress>
+                            </div>
+                        </div> -->
                     </div>
                 </article>
 
-                <article class="message is-danger">
+                <article class="message is-light">
                     <div class="message-header">
                         <p>Change Configuration</p>
                     </div>
@@ -258,7 +248,7 @@
                         </div>
                     </div>
                     <p class="control">
-                        <button class="button is-info" id="id-button-sub">Confirm</button>
+                        <button class="button is-link" id="id-button-sub">Confirm</button>
                     </p>
                 </div>
                 <div class="field is-grouped">
@@ -277,7 +267,7 @@
                         </div>
                     </div>
                     <p class="control">
-                        <button class="button is-link is-info" id="id-button-method">Confirm</button>
+                        <button class="button is-link is-link" id="id-button-method">Confirm</button>
                     </p>
                 </div>
                 <div class="field is-grouped">
@@ -288,13 +278,13 @@
                         </div>
                     </div>
                     <p class="control">
-                        <button class="button is-primary " id="id-button-password">Confirm</button>
+                        <button class="button is-link " id="id-button-password">Confirm</button>
                     </p>
                 </div>
                     </div>
                 </article>
 
-            </div>
+
         </div>
     </div>
 </div>
