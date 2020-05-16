@@ -24,12 +24,12 @@ START_PORT = 1024
 DEFAULT_METHOD = "aes-256-cfb"
 
 # 签到流量设置
-MIN_CHECKIN_TRAFFIC = 10 * MB
-MAX_CHECKIN_TRAFFIC = 200 * MB
+MIN_CHECKIN_TRAFFIC = 50 * MB
+MAX_CHECKIN_TRAFFIC = 500 * MB
 
 # 网站title
-TITLE = "谜之屋"
-SUBTITLE = "秘密的小屋"
+TITLE = "XYZ"
+SUBTITLE = "Faster, cheaper, friendly"
 
 # 用户邀请返利比例
 INVITE_PERCENT = 0.2
