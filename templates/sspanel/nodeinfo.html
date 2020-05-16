@@ -46,11 +46,11 @@
                     <div class="card-content">
                         <div class="content">
                             <p>{{ node.info }}</p>
-                            {%if node.human_speed_limit != "不限速" %}
-                            <p>限速：<code>{{ node.human_speed_limit }}</code></p>
+                            {%if node.human_speed_limit != "Unlimited speed" %}
+                            <p>Speed limit:<code>{{ node.human_speed_limit }}</code></p>
                             {% endif %}
                             {%if node.enlarge_scale != 1.00 %}
-                            <p>流量倍率：<code>{{ node.enlarge_scale }}</code></p>
+                            <p>Flow rate:<code>{{ node.enlarge_scale }}</code></p>
                             {% endif %}
                         </div>
                     </div>

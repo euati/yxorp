@@ -1,5 +1,5 @@
 # 网站域名设置（请正确填写，不然订阅功能会失效：
-HOST = "http://141.164.37.92/"
+HOST = "http://yxorp.xyz/"
 
 # 网站密钥
 SECRET_KEY = "aasdasdas"
