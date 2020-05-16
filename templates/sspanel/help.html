@@ -26,24 +26,24 @@
             <br>
             <br>
                 <h2 class="subtitle">
-                    Для приложения ShadowsocksR
+                    Для приложения Clash
                 </h2>
-            <p>Перед настройкой в первую очередь вы должны быть <a href="https://yxorp.xyz/sspanel/register/">зарегистрированы</a> и <a href="https://yxorp.xyz/sspanel/login/">авторизованы.</a></p>
-            <p><strong>1. Скачиваем </strong><a class="download_link" href="/media/ShadowsocksR_by_XYZ.7z">ShadowsocksR (SSR)</a>.
+            <p>Перед настройкой в первую очередь вы должны быть<a class="button is-primary is-link" href="{% url 'sspanel:register' %}">Зарегистрированы</a> и 
+                <a class="button is-danger is-outlined" href="{% url 'sspanel:login' %}">авторизованы</a>.
                 <br/> </p>
-            <p><strong>2. </strong>Копируем URL подписку в<a href="https://yxorp.xyz/sspanel/users/userinfo/"><strong> личном кабинете</strong></a></p>
-            <p><strong>3. </strong> Открываем ShadowsocksR. В правом нижнем углу нажимаем правой кнопкой мыши на иконку самолетика. <br> 
-            Идём в <strong>“Node Subscribe” → “Subscribe Setting”</strong>. Вставить ранее скопированную ссылку URL, включить галочку <strong>“Auto update”</strong> и нажать <strong>“OK”</strong>. <br>
-            Снова идём <strong>“Node Subscribe” → “Update subscribe(bypass proxy)”</strong>. Если видите уведомление <strong>“Success ..”</strong>, все сервера загрузились.</p>
-            <p><strong>4. </strong>Идём в “Mode” ставим <strong>Global</strong> (Если хотите чтобы весь трафик проходил через прокси) или <strong>PAC</strong> (Если только заблокированные сайты). </p>
-            <p><strong>5. </strong>Сервер выбираем <strong>“Servers” → “XYZ” → “Нужный сервер”</strong> </p>
+            <p><strong>1. </strong> Устанавливаем приложение (Внимание! При установке может выйти уведомление от антивируса или от защитника Windows, нажимаем "Выполнить в любом случае" или нужно нажать подобное) (это не вирус!) </a></p>
+            <p><strong>2. </strong> В личном кабинете нажимаем кнопку <strong>"Subscription address"</strong> копируем ссылку <strong>"Subscribe to Clash"</strong></p>
+            <p><strong>3. </strong> Открываем Clash >> переходим в Profiles >> нужно вставить ранее скопированную ссылку и нажать <strong>"Download"</strong>.</p>
+            <p><strong>4. </strong> Переходим в General >> включаем <strong>"System Proxy"</strong> (Если не работает можете перейти на >> "Proxies" выбрать нужный вам метод подключения)</p>
             <br>
             <br>
-            <img src="{% static 'img/windows/ssr/1.png' %}" alt="download" width="500px"><br>
-            <img src="{% static 'img/windows/ssr/2.png' %}" alt="download" width="500px"><br>
+            <img src="{% static 'media/tutorial/win/1.png' %}" alt="download" width="500px"><br>
+            <img src="{% static 'media/tutorial/win/2.png' %}" alt="download" width="500px"><br>
+            <img src="{% static 'media/tutorial/win/3.png' %}" alt="download" width="500px"><br>
+            <img src="{% static 'media/tutorial/win/4.png' %}" alt="download" width="500px"><br>
+            <img src="{% static 'media/tutorial/win/5.png' %}" alt="download" width="500px"><br>
             <br>
             <br>
-            <p><strong>Load balance</strong>-программа автоматически выбирает наиболее подходящий сервер.</p>
         </div>
 
         <button class="accordion">Tutorial for Android</button>
@@ -51,17 +51,13 @@
             <br>
             <br>
                 <h2 class="subtitle">
-                    Для приложения ShadowsocksR
+                    Для приложения Clash
                 </h2>
-            <p>Перед настройкой в первую очередь вы должны быть <a href="https://yxorp.xyz/sspanel/register/">зарегистрированы</a> и <a href="https://yxorp.xyz/sspanel/login/">авторизованы.</a></p>
-            <p><strong>1. Скачиваем</strong> <a class="download_link" href="/media/shadowsocksr-android-3.5.4.apk">ShadowsocksR</a>> и<strong> Устанавливаем</strong>.</p>
-            <p>
-            <strong>2. </strong> На странице <a href="https://yxorp.xyz/sspanel/users/userinfo/">Personal account</a> копируем ссылку Subscription URL. <br>
-            открываем установленное приложение, на левом верхнем углу нажимаем на логотип shadowsocks R, <br>  нажимаем на круглую кнопку, выбираем <strong>Add/Update SSR Subscription</strong>, свайпом влево удаляем Free SSR public.<br>
-            Нажимаем <strong>Add URL</strong> вставляем ранее скопированную ссылку >> "ok" >> включить "Auto Update", нажимаем "Сохранить и обновить". </p>
-            Удаляем сервер по умолчанию (8388) свайпом влево.<br>
-            Включаем IPv6 Route и UDP Forwarding.
-            <p><strong>3. Выбираем сервер</strong>, нажимаем на круглую<br> кнопку самолетика. <strong>"Подключаемся"</strong>, проверяем<br></p>
+                <p>Перед настройкой в первую очередь вы должны быть<a class="button is-primary is-link" href="{% url 'sspanel:register' %}">Зарегистрированы</a> и 
+                    <a class="button is-danger is-outlined" href="{% url 'sspanel:login' %}">авторизованы</a>. </p>
+                <p><strong>1. </strong> Скачивание и установка приложения</p>
+                <p><strong>2. </strong> В личном кабинете нажимаем кнопку <strong>"Subscription address"</strong> копируем ссылку <strong>"Subscribe to Clash"</strong></p>
+                <p><strong>3. </strong> В приложении переходим в "Profiles" >> "New Profile" >> "URL" >> в "URL" вставляем ранее скопированную ссылку >> в "Auto Update" - пишем "30" >> "Name" - опционально. Сверху справа нажимаем на иконку >> "дискеты" >> три точки >> "Update" >> Выбираем нашу подписку. В главном экране нашего приложения нажимаем на кнопку "Stopped" (Подключаемся) </p>
             <br>
             <br>
             <img src="{% static 'img/android/ssr/1.jpg' %}" alt="android" width="250px"><br>
