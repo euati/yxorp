@@ -1,40 +1,174 @@
-{% extends 'base.html' %} {% block main %}
+{% extends 'base.html' %} {% block main %} {% load static %}
 <div class="column is-12">
     <section class="hero is-info is-smaill">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    说个故事
+                    How to install
                 </h1>
-                <h2 class="subtitle">
-                    一个男孩和「墙」的故事：
-                </h2>
             </div>
         </div>
     </section>
 </div>
 <div class="column is-12">
     <div class="box">
-        <div class="notification">
-            <button class="delete"></button>
-            <p>一堵墙。
-                <br/>
+        <button class="accordion">Windows</button>
+        <div class="panel">
+            <br>
+            <br>
+                <h2 class="subtitle">
+                    Для приложения ShadowsocksR
+                </h2>
+            <p>Перед настройкой в первую очередь вы должны быть <a href="https://yxorp.xyz/sspanel/register/">зарегистрированы</a> и <a href="https://yxorp.xyz/sspanel/login/">авторизованы.</a></p>
+            <p><strong>1. Скачиваем </strong><a class="download_link" href="/media/ShadowsocksR_by_XYZ.7z">ShadowsocksR (SSR)</a>.
                 <br/> </p>
-            <p> 男人看着这堵墙，从他还是个男孩的时候，到下巴上冒出细细的胡须，
-                <br>又到成为一个真正的男人。墙也从最坚固的样子慢慢衰颓。 </p>
-            <p> 这次一定要征服它，一定可以「征服」它。男人心想。</p>
-            <P>说来也奇怪，小时候与小伙伴玩闹，打赌谁能爬上这堵墙，男孩就从没赢过。不管用怎样的方法，甚至把家里的梯子搬出来，也没能成功爬上去，一次也没有。</P>
-            <p>久而久之，这堵墙成了男孩的心结，即使成年后，只要站在这堵墙前，
-                <br>就仍然是那个四五岁不服输的小男孩。</p>
-            <p>男人开始攀爬，这么多年来，他已经对墙砖的位置烂熟于心。
-                <br>哪一块砖微微凸出来，可以抓住或者作为落脚的地方，
-                <br>男人都了然于心。但他不明白为什么总是在最接近墙头的时候失败。</p>
-            <p>这次能够成功吗？</p>
+            <p><strong>2. </strong>Копируем URL подписку в<a href="https://yxorp.xyz/sspanel/users/userinfo/"><strong> личном кабинете</strong></a></p>
+            <p><strong>3. </strong> Открываем ShadowsocksR. В правом нижнем углу нажимаем правой кнопкой мыши на иконку самолетика. <br> 
+            Идём в <strong>“Node Subscribe” → “Subscribe Setting”</strong>. Вставить ранее скопированную ссылку URL, включить галочку <strong>“Auto update”</strong> и нажать <strong>“OK”</strong>. <br>
+            Снова идём <strong>“Node Subscribe” → “Update subscribe(bypass proxy)”</strong>. Если видите уведомление <strong>“Success ..”</strong>, все сервера загрузились.</p>
+            <p><strong>4. </strong>Идём в “Mode” ставим <strong>Global</strong> (Если хотите чтобы весь трафик проходил через прокси) или <strong>PAC</strong> (Если только заблокированные сайты). </p>
+            <p><strong>5. </strong>Сервер выбираем <strong>“Servers” → “XYZ” → “Нужный сервер”</strong> </p>
+            <br>
+            <br>
+            <img src="{% static 'img/windows/ssr/1.png' %}" alt="download" width="500px"><br>
+            <img src="{% static 'img/windows/ssr/2.png' %}" alt="download" width="500px"><br>
+            <br>
+            <br>
+            <p><strong>Load balance</strong>-программа автоматически выбирает наиболее подходящий сервер.</p>
         </div>
-        <div class="notification is-success">
-            <button class="delete"></button>
-            <h2 class="title"> 注册了你就知道了 ʘʚʘ</h2>
+
+        <button class="accordion">Android</button>
+        <div class="panel">
+            <br>
+            <br>
+                <h2 class="subtitle">
+                    Для приложения ShadowsocksR
+                </h2>
+            <p>Перед настройкой в первую очередь вы должны быть <a href="https://yxorp.xyz/sspanel/register/">зарегистрированы</a> и <a href="https://yxorp.xyz/sspanel/login/">авторизованы.</a></p>
+            <p><strong>1. Скачиваем</strong> <a class="download_link" href="/media/shadowsocksr-android-3.5.4.apk">ShadowsocksR</a>> и<strong> Устанавливаем</strong>.</p>
+            <p>
+            <strong>2. </strong> На странице <a href="https://yxorp.xyz/sspanel/users/userinfo/">Personal account</a> копируем ссылку Subscription URL. <br>
+            открываем установленное приложение, на левом верхнем углу нажимаем на логотип shadowsocks R, <br>  нажимаем на круглую кнопку, выбираем <strong>Add/Update SSR Subscription</strong>, свайпом влево удаляем Free SSR public.<br>
+            Нажимаем <strong>Add URL</strong> вставляем ранее скопированную ссылку >> "ok" >> включить "Auto Update", нажимаем "Сохранить и обновить". </p>
+            Удаляем сервер по умолчанию (8388) свайпом влево.<br>
+            Включаем IPv6 Route и UDP Forwarding.
+            <p><strong>3. Выбираем сервер</strong>, нажимаем на круглую<br> кнопку самолетика. <strong>"Подключаемся"</strong>, проверяем<br></p>
+            <br>
+            <br>
+            <img src="{% static 'img/android/ssr/1.jpg' %}" alt="android" width="250px"><br>
+            <img src="{% static 'img/android/ssr/2.png' %}" alt="android" width="500px"><br>
+            <img src="{% static 'img/android/ssr/3.png' %}" alt="android" width="500px"><br>
+            <img src="{% static 'img/android/ssr/4.png' %}" alt="android" width="500px"><br>
+            <br>
+            <br>
+        </div>
+
+        <button class="accordion">Mac OS</button>
+        <div class="panel">
+            <br>
+            <br>
+            <h2 class="subtitle">
+                Для приложения ShadowsocksX-NG.
+            </h2>
+            <p>Перед настройкой в первую очередь вы должны быть <a href="https://yxorp.xyz/sspanel/register/">зарегистрированы</a> и <a href="https://yxorp.xyz/sspanel/login/">авторизованы.</a></p>
+                <p>1. <strong>Скачиваем</strong>  <a class="download_link" href="/media/ShadowsocksX-NG-R8.dmg">ShadowsocksX-NG-R8</a>.
+                <br/>
+                <p>2. <a href="https://yxorp.xyz/server/node/config"><strong>Скачиваем конфигурацию</strong>.</a></p>
+                 </p>
+            <p>3. <strong>Открываем скачанный архив,</strong> программу перетаскиваем в приложения</p>
+            <br>
+            <img src="{% static 'img/macos/ssx/1.png' %}" alt="mac" width="500px">
+            <br>
+            <br>
+            <P>4.<strong> Запускаем программу,</strong> после, в правом верхнем углу видим значок самолетика,
+            идем в <strong>Servers</strong>  >> <strong>Import Bunch Json File...</strong>, <br>в открывшемся окне находим нашу скачанную конфигурацию (ss.json) </P>
+            <br>
+            <img src="{% static 'img/macos/ssx/3.png' %}" alt="mac" width="500px"><br>
+            <img src="{% static 'img/macos/ssx/4.png' %}" alt="mac" width="500px">
+            <br>
+            <br>
+            <p><strong>5.</strong>Идем в <strong>Servers</strong> выбираем сервер который вам нужен, <strong>Shadowsocks: On</strong>- означает что вы подключены</p>
+            <p>Пробуем зайти на youtube, facebook, twitter и т.д<br>
+            </p>
+            <video controls width="500px">
+                <source src="{% static 'video/ShadowsocksX_MacOs.mp4' %}" type="video/mp4"></source>
+                Тег video не поддерживается вашим браузером.
+                <a href="video/ShadowsocksX_MacOs.mp4">Скачайте видео</a>.
+            </video>
+        </div>
+
+        <button class="accordion">IOS (регион не Китай)</button>
+        <div class="panel">
+            <br>
+            <br>
+            <h2 class="subtitle">
+                Для приложения Potatso Lite
+            </h2>
+            <p>
+                Перед настройкой в первую очередь вы должны быть <a href="https://yxorp.xyz/sspanel/register/">зарегистрированы</a> и <a href="https://yxorp.xyz/sspanel/login/">авторизованы.</a><br>
+                <strong>1. </strong> В AppStore ищем Potatso Lite и устанавливаем.<br>
+                <strong>2. </strong> На странице <a href="https://yxorp.xyz/sspanel/users/userinfo/">Personal account</a> копируем
+                ссылку Subscription URL. <br>
+                <strong>3 .</strong> Открыть <strong> Potatso Lite </strong> выбрать <strong> "Get Started" >> "Add now" >> "Subscription" >> </strong>
+                написать "Name", включить <strong> "Auto update" </strong> и вставить ранее скопированную ссылку "Subscription URL". 
+                На прав верхнем углу нажать на галочку. <br>
+                Нажать <strong> "Start" </strong> и разрешить доступ если смартфон запросит.
+                <br>
+                <strong>Важно!</strong> при работе с ВПН надо отключать GPS локацию, так как такие приложения как инстаграм, вк и тд. передают ваше
+                реальное местоположение.
+            </p>
+                <br>
+                <br>
+                <img src="{% static 'img/android/ssr/1.jpg' %}" alt="android" width="250px"><br>
+                <img src="{% static 'img/ios/potatso_lite/2.png' %}" alt="android" width="600px"><br>
+        </div>
+
+
+        <button class="accordion">Для Linux</button>
+        <div class="panel">
+            <br>
+            <p>В данном случае использовался Ubuntu 16.04 LTS</p>
+            <br>
+            <p>Перед настройкой в первую очередь вы должны быть <a href="https://yxorp.xyz/sspanel/register/">зарегистрированы</a> и <a href="https://yxorp.xyz/sspanel/login/">авторизованы.</a> <br>
+            <strong>1.Установка </strong> В менеджере приложений устанавливаем Shadowsocks-qt5 <br>
+                либо через терминал <br>
+                <code>pip install shadowsocks</code><br>
+                <code>apt-get install shadowsocks-libev</code><br>
+                <code>cpan Net::Shadowsocks</code><br>
+                <strong>2. Добавляем сервера.</strong> На странице <a href="https://yxorp.xyz/sspanel/nodeinfo/">All servers</a> открываем конфигурацию сервера, копируем ссылку import (SS applications). <br>
+                <strong>3. Открывем приложение. </strong>Идем в <strong>Connection >> Add >> URL</strong> вставляем ссылку жмем OK, пишем имя сервера для удобства. <br>
+                <strong>4. Настраиваем браузер. </strong>Открываем настройки браузера (в моем случае Firefox) <br>
+                идем в настройки прокси, выбираем "Ручная настройка прокси", в "Узел SOCKS" вводим <strong>127.0.0.1</strong> Порт <strong>1080</strong>, выбираем SOCKS 5.<br>
+                Ниже ставим галочку <strong>Отправлять DNS-запросы через прокси при использовании SOCKS 5</strong>.<br>
+                Нажимаем OK, проверяем соединение. <br>
+                <strong>Внимание!</strong> Если хотите чтобы браузер работал без прокси, надо снова возвращать настройки по умолчанию.
+            </p>
+            <br><br>
+            <img src="{% static 'img/linux/1.png' %}" alt="linux" width="500px"><br>
+            <img src="{% static 'img/linux/2.png' %}" alt="linux" width="500px"><br>
+            <img src="{% static 'img/linux/3.png' %}" alt="linux" width="500px"><br>
+            <img src="{% static 'img/linux/4.png' %}" alt="linux" width="500px"><br>
+            <img src="{% static 'img/linux/5.png' %}" alt="linux" width="500px"><br>
+            <img src="{% static 'img/linux/6.png' %}" alt="linux" width="500px"><br>
         </div>
     </div>
 </div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight){
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    }
+    </script>
+
 {% endblock main %}
