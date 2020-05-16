@@ -18,10 +18,16 @@
         </h2>
         <p><a class="download_link" href="/static/media/clients/clash.apk">Clash for Android</a>  <br>       
             <a class="download_link" href="/static/media/clients/clashX.dmg">Clash for Mac OS</a>     <br>
-            <a class="download_link" href="/static/media/clients/clash.exe">Clash for Windows</a></p>
+            <a class="download_link" href="/static/media/clients/clash.exe">Clash for Windows</a></p> <br>
+            <a href="https://apps.apple.com/us/app/quantumult/id1252015438">Quantumult</a><br>
+            <a href="https://apps.apple.com/us/app/pepi/id1283082051">Pepi</a><br>
+            <a href="https://apps.apple.com/us/app/shadowrocket/id932747118">Shadowrocket </a><br>
+            <a href="https://apps.apple.com/us/app/i2ray/id1445270056">i2Ray</a><br>
+            <a href="https://apps.apple.com/us/app/kitsunebi-proxy-utility/id1446584073">Kitsunebi</a><br>
+            <a href="https://apps.apple.com/us/app/91vpn/id1483753706">91VPN</a>
     </div>
     <div class="box">
-        <button class="accordion">Tutorial for Windows</button>
+        <button class="accordion">Tutorial for Windows (Clash)</button>
         <div class="panel">
             <br>
             <br>
@@ -46,7 +52,7 @@
             <br>
         </div>
 
-        <button class="accordion">Tutorial for Android</button>
+        <button class="accordion">Tutorial for Android (Clash)</button>
         <div class="panel">
             <br>
             <br>
@@ -66,93 +72,39 @@
             <br>
         </div>
 
-        <button class="accordion">Tutorial for Mac OS</button>
+        <button class="accordion">Tutorial for IOS (Shadowrocket)</button>
         <div class="panel">
             <br>
             <br>
             <h2 class="subtitle">
-                Для приложения ShadowsocksX-NG.
+                Для приложения Shadowrocket
             </h2>
-            <p>Перед настройкой в первую очередь вы должны быть <a href="https://yxorp.xyz/sspanel/register/">зарегистрированы</a> и <a href="https://yxorp.xyz/sspanel/login/">авторизованы.</a></p>
-                <p>1. <strong>Скачиваем</strong>  <a class="download_link" href="/media/ShadowsocksX-NG-R8.dmg">ShadowsocksX-NG-R8</a>.
-                <br/>
-                <p>2. <a href="https://yxorp.xyz/server/node/config"><strong>Скачиваем конфигурацию</strong>.</a></p>
-                 </p>
-            <p>3. <strong>Открываем скачанный архив,</strong> программу перетаскиваем в приложения</p>
-            <br>
-            <img src="{% static 'img/macos/ssx/1.png' %}" alt="mac" width="500px">
-            <br>
-            <br>
-            <P>4.<strong> Запускаем программу,</strong> после, в правом верхнем углу видим значок самолетика,
-            идем в <strong>Servers</strong>  >> <strong>Import Bunch Json File...</strong>, <br>в открывшемся окне находим нашу скачанную конфигурацию (ss.json) </P>
-            <br>
-            <img src="{% static 'img/macos/ssx/3.png' %}" alt="mac" width="500px"><br>
-            <img src="{% static 'img/macos/ssx/4.png' %}" alt="mac" width="500px">
-            <br>
-            <br>
-            <p><strong>5.</strong>Идем в <strong>Servers</strong> выбираем сервер который вам нужен, <strong>Shadowsocks: On</strong>- означает что вы подключены</p>
-            <p>Пробуем зайти на youtube, facebook, twitter и т.д<br>
-            </p>
-            <video controls width="500px">
-                <source src="{% static 'video/ShadowsocksX_MacOs.mp4' %}" type="video/mp4"></source>
-                Тег video не поддерживается вашим браузером.
-                <a href="video/ShadowsocksX_MacOs.mp4">Скачайте видео</a>.
-            </video>
+            <p>Перед настройкой в первую очередь вы должны быть<a href="{% url 'sspanel:register' %}">Зарегистрированы</a> и 
+                <a href="{% url 'sspanel:login' %}">авторизованы</a>. </p>
+            <p><strong>1. </strong> Скачивание и установка приложения</p>
+            <p><strong>2. </strong> В личном кабинете нажимаем кнопку <strong>"Subscription address"</strong> копируем ссылку <strong>"Subscribe to SS/Vmess"</strong></p>
+            <p><strong>3. </strong> Дальше по картинкам.</p>
+                <br>
+                <br>
+                <img src="{% static 'media/tutorial/ios/shadowrocket/1.png' %}" alt="android" width="500px"><br>
         </div>
 
-        <button class="accordion">Tutorial for IOS (iphone, ipad)</button>
+        <button class="accordion">Tutorial for Mac OS (ClashX)</button>
         <div class="panel">
             <br>
             <br>
             <h2 class="subtitle">
-                Для приложения Potatso Lite
+                Для приложения ClashX.
             </h2>
-            <p>
-                Перед настройкой в первую очередь вы должны быть <a href="https://yxorp.xyz/sspanel/register/">зарегистрированы</a> и <a href="https://yxorp.xyz/sspanel/login/">авторизованы.</a><br>
-                <strong>1. </strong> В AppStore ищем Potatso Lite и устанавливаем.<br>
-                <strong>2. </strong> На странице <a href="https://yxorp.xyz/sspanel/users/userinfo/">Personal account</a> копируем
-                ссылку Subscription URL. <br>
-                <strong>3 .</strong> Открыть <strong> Potatso Lite </strong> выбрать <strong> "Get Started" >> "Add now" >> "Subscription" >> </strong>
-                написать "Name", включить <strong> "Auto update" </strong> и вставить ранее скопированную ссылку "Subscription URL". 
-                На прав верхнем углу нажать на галочку. <br>
-                Нажать <strong> "Start" </strong> и разрешить доступ если смартфон запросит.
-                <br>
-                <strong>Важно!</strong> при работе с ВПН надо отключать GPS локацию, так как такие приложения как инстаграм, вк и тд. передают ваше
-                реальное местоположение.
-            </p>
-                <br>
-                <br>
-                <img src="{% static 'img/android/ssr/1.jpg' %}" alt="android" width="250px"><br>
-                <img src="{% static 'img/ios/potatso_lite/2.png' %}" alt="android" width="600px"><br>
-        </div>
-
-
-        <button class="accordion">Для Linux</button>
-        <div class="panel">
+            <p>Перед настройкой в первую очередь вы должны быть<a href="{% url 'sspanel:register' %}">Зарегистрированы</a> и 
+                <a href="{% url 'sspanel:login' %}">авторизованы</a>.
+                <br/> </p>
+            <p><strong>1. </strong> Скачиваем и устанавливаем приложение </p>
+            <p><strong>2. </strong> В личном кабинете нажимаем кнопку <strong>"Subscription address"</strong> копируем ссылку <strong>"Subscribe to Clash"</strong></p>
+            <p><strong>3. Дальше по картинкам</strong></p>
             <br>
-            <p>В данном случае использовался Ubuntu 16.04 LTS</p>
             <br>
-            <p>Перед настройкой в первую очередь вы должны быть <a href="https://yxorp.xyz/sspanel/register/">зарегистрированы</a> и <a href="https://yxorp.xyz/sspanel/login/">авторизованы.</a> <br>
-            <strong>1.Установка </strong> В менеджере приложений устанавливаем Shadowsocks-qt5 <br>
-                либо через терминал <br>
-                <code>pip install shadowsocks</code><br>
-                <code>apt-get install shadowsocks-libev</code><br>
-                <code>cpan Net::Shadowsocks</code><br>
-                <strong>2. Добавляем сервера.</strong> На странице <a href="https://yxorp.xyz/sspanel/nodeinfo/">All servers</a> открываем конфигурацию сервера, копируем ссылку import (SS applications). <br>
-                <strong>3. Открывем приложение. </strong>Идем в <strong>Connection >> Add >> URL</strong> вставляем ссылку жмем OK, пишем имя сервера для удобства. <br>
-                <strong>4. Настраиваем браузер. </strong>Открываем настройки браузера (в моем случае Firefox) <br>
-                идем в настройки прокси, выбираем "Ручная настройка прокси", в "Узел SOCKS" вводим <strong>127.0.0.1</strong> Порт <strong>1080</strong>, выбираем SOCKS 5.<br>
-                Ниже ставим галочку <strong>Отправлять DNS-запросы через прокси при использовании SOCKS 5</strong>.<br>
-                Нажимаем OK, проверяем соединение. <br>
-                <strong>Внимание!</strong> Если хотите чтобы браузер работал без прокси, надо снова возвращать настройки по умолчанию.
-            </p>
-            <br><br>
-            <img src="{% static 'img/linux/1.png' %}" alt="linux" width="500px"><br>
-            <img src="{% static 'img/linux/2.png' %}" alt="linux" width="500px"><br>
-            <img src="{% static 'img/linux/3.png' %}" alt="linux" width="500px"><br>
-            <img src="{% static 'img/linux/4.png' %}" alt="linux" width="500px"><br>
-            <img src="{% static 'img/linux/5.png' %}" alt="linux" width="500px"><br>
-            <img src="{% static 'img/linux/6.png' %}" alt="linux" width="500px"><br>
+            <img src="{% static 'media/tutorial/mac/1.png' %}" alt="android" width="500px"><br>
         </div>
     </div>
 </div>
