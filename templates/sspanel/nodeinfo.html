@@ -20,13 +20,13 @@
                 <div class="card-header" >
                     {% if node.online == True %}
                     <p class="card-header-title">
-                        <span class="tag is-primary is-hidden-mobile" >SS</span>
+                        <span class="tag is-primary is-hidden-mobile"  style="margin-right: 5px;">SS</span>
                         <span class="tag is-success" >Available</span>&nbsp;{{ node.name }}
                     </p>
                     {% else %}
                     <p class="card-header-title">
-                        <span class="tag is-primary is-rounded is-hidden-mobile">SS</span>
-                        <span class="tag is-danger is-rounded">Not available</span>&nbsp;{{ node.name }}
+                        <span class="tag is-primary is-hidden-mobile" style="margin-right: 5px;">SS</span>
+                        <span class="tag is-danger">Not available</span>&nbsp;{{ node.name }}
                     </p>
                     {% endif %}
                     <!-- <p class="card-header-icon">region：
@@ -141,12 +141,12 @@
                 <div class="card-header">
                     {% if node.online == True %}
                     <p class="card-header-title">
-                        <span class="tag is-primary is-hidden-mobile">V2ray</span>
+                        <span class="tag is-primary is-hidden-mobile" style="margin-right: 5px;">V2ray</span>
                         <span class="tag is-success">Available</span>&nbsp;{{ node.name }}
                     </p>
                     {% else %}
                     <p class="card-header-title">
-                        <span class="tag is-primary is-hidden-mobile">V2ray</span>
+                        <span class="tag is-primary is-hidden-mobile" style="margin-right: 5px;">V2ray</span>
                         <span class="tag is-danger">Not available</span>&nbsp;{{ node.name }}
                     </p>
                     {% endif %}

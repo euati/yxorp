@@ -21,7 +21,8 @@
                     <p class="subtitle is-5 is-spaced">You already had today's daily bonuse <br>
                         Please come back tomorrow</p>
                     {% else %}
-                    <p class="subtitle is-5 is-spaced"> You can get extra, from{{ min_traffic }}~to~{{ max_traffic }} of traffic</p>
+                    <p class="subtitle is-5 is-spaced"> You can get extra, from{{ min_traffic }}~to~{{ max_traffic }} of
+                        traffic</p>
                     <br>
                     <button class="button">
                         <a>
@@ -50,7 +51,8 @@
                     </li>
                     <br>
                     <div class="buttons">
-                        <span class="button is-link modal-button is-rounded" data-target="modal-sub">Subscription address</span>
+                        <span class="button is-link modal-button is-rounded" data-target="modal-sub">Subscription
+                            address</span>
                     </div>
                 </div>
             </article>
@@ -67,7 +69,7 @@
 
         </div>
         <div class="tile is-7 is-vertical is-parent">
-
+            <div class="tile box is-child">
                 <div class="modal nodeinfo" id="modal-sub">
                     <div class="modal-background"></div>
                     <div class="modal-card">
@@ -216,12 +218,12 @@
                         <p>Change Configuration</p>
                     </div>
                     <div class="message-body">
-                                        <!-- <button class="button is-rounded">
+                        <!-- <button class="button is-rounded">
                     <a>
                         <span id="id-change-port">Change port</span>
                     </a>
                 </button> -->
-                <!-- <div class="field is-grouped">
+                        <!-- <div class="field is-grouped">
                     <div class="control has-icons-left">
                         <div class="select is-rounded is-fullwidth is-info ">
                             <select name="selects">
@@ -240,177 +242,179 @@
                         <button class="button is-outlined is-info is-rounded" id="id-button-theme">Change</button>
                     </p>
                 </div> -->
-                <div class="field is-grouped">
-                    <div class="control has-icons-left">
-                        <div class="select is-fullwidth">
-                            <select name="selects-sub-types">
-                                <option value="" disabled="" selected="">Change subscription type</option>
-                                <option disabled="">───</option>
-                                {% for sub_type in  sub_types %}
-                                <option value="{{ sub_type.0 }}">{{ sub_type.1 }}</option>
-                                {% endfor %}
-                            </select>
+                        <div class="field is-grouped">
+                            <div class="control has-icons-left">
+                                <div class="select is-fullwidth">
+                                    <select name="selects-sub-types">
+                                        <option value="" disabled="" selected="">Change subscription type</option>
+                                        <option disabled="">───</option>
+                                        {% for sub_type in  sub_types %}
+                                        <option value="{{ sub_type.0 }}">{{ sub_type.1 }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="icon is-small is-left">
+                                    <i class="fa fa-rocket"></i>
+                                </div>
+                            </div>
+                            <p class="control">
+                                <button class="button" id="id-button-sub">Confirm</button>
+                            </p>
                         </div>
-                        <div class="icon is-small is-left">
-                            <i class="fa fa-rocket"></i>
+                        <div class="field is-grouped">
+                            <div class="control has-icons-left">
+                                <div class="select is-fullwidth is-link">
+                                    <select name="selects-method-types">
+                                        <option value="" disabled="" selected="">Change the encryption method</option>
+                                        <option disabled="">───</option>
+                                        {% for m in methods %}
+                                        <option>{{ m }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="icon is-small is-left">
+                                    <i class="fa fa-wrench"></i>
+                                </div>
+                            </div>
+                            <p class="control">
+                                <button class="button" id="id-button-method">Confirm</button>
+                            </p>
                         </div>
-                    </div>
-                    <p class="control">
-                        <button class="button" id="id-button-sub">Confirm</button>
-                    </p>
-                </div>
-                <div class="field is-grouped">
-                    <div class="control has-icons-left">
-                        <div class="select is-fullwidth is-link">
-                            <select name="selects-method-types">
-                                <option value="" disabled="" selected="">Change the encryption method</option>
-                                <option disabled="">───</option>
-                                {% for m in methods %}
-                                <option>{{ m }}</option>
-                                {% endfor %}
-                            </select>
+                        <div class="field is-grouped">
+                            <div class="control has-icons-left">
+                                <input name="num" class="input" placeholder="Change SS password" id="id-password">
+                                <div class="icon is-small is-left">
+                                    <i class="fa fa-key"></i>
+                                </div>
+                            </div>
+                            <p class="control">
+                                <button class="button" id="id-button-password">Confirm</button>
+                            </p>
                         </div>
-                        <div class="icon is-small is-left">
-                            <i class="fa fa-wrench"></i>
-                        </div>
-                    </div>
-                    <p class="control">
-                        <button class="button" id="id-button-method">Confirm</button>
-                    </p>
-                </div>
-                <div class="field is-grouped">
-                    <div class="control has-icons-left">
-                        <input name="num" class="input" placeholder="Change SS password" id="id-password">
-                        <div class="icon is-small is-left">
-                            <i class="fa fa-key"></i>
-                        </div>
-                    </div>
-                    <p class="control">
-                        <button class="button" id="id-button-password">Confirm</button>
-                    </p>
-                </div>
                     </div>
                 </article>
 
 
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-    // 点击复制
-    var clip = new Clipboard('#id-button-clip');
-    clip.on('success', function (e) {
-        $('.copied').show();
-        $('.copied').fadeOut(1000);
-    });
+    <script>
+        // 点击复制
+        var clip = new Clipboard('#id-button-clip');
+        clip.on('success', function (e) {
+            $('.copied').show();
+            $('.copied').fadeOut(1000);
+        });
 
-    // 端口重置
-    var ProtButton = $("#id-change-port")
-    var changeport = function () {
-        url = "{% url 'api:reset_ss_port' %}"
-        data = {
-            csrfmiddlewaretoken: '{{ csrf_token }}',
-        }
-        $.post(url, data, function (results) {
-            swal(results.title, results.subtitle, results.status)
-            port.textContent = results.subtitle.slice(6, -1)
-        })
-    }
-    ProtButton.click(changeport)
-
-    // 签到
-    var CheckButton = $("#id-checkin")
-    var Checkin = function () {
-        url = "{% url 'api:checkin' %}"
-        data = {
-            csrfmiddlewaretoken: '{{ csrf_token }}',
-        }
-        $.post(url, data, function (results) {
-            info = results
-            swal(info.title, info.subtitle, info.status)
-            var box = $("#id-checkin-box")
-            box.html('<p class="subtitle is-5 is-spaced">Вы сегодня уже получили дополнительный трафик</p>')
-        })
-    }
-    CheckButton.click(Checkin)
-
-    // 更换主题
-    var ThemeButton = $("#id-button-theme")
-    var changeTheme = function () {
-        var theme = $("select[name=selects]").val();
-        if (theme) {
+        // 端口重置
+        var ProtButton = $("#id-change-port")
+        var changeport = function () {
+            url = "{% url 'api:reset_ss_port' %}"
             data = {
-                theme: theme,
                 csrfmiddlewaretoken: '{{ csrf_token }}',
             }
-            url = "{% url 'api:change_theme' %}"
+            $.post(url, data, function (results) {
+                swal(results.title, results.subtitle, results.status)
+                port.textContent = results.subtitle.slice(6, -1)
+            })
+        }
+        ProtButton.click(changeport)
+
+        // 签到
+        var CheckButton = $("#id-checkin")
+        var Checkin = function () {
+            url = "{% url 'api:checkin' %}"
+            data = {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+            }
             $.post(url, data, function (results) {
                 info = results
                 swal(info.title, info.subtitle, info.status)
+                var box = $("#id-checkin-box")
+                box.html(
+                    '<p class="subtitle is-5 is-spaced">Вы сегодня уже получили дополнительный трафик</p>'
+                    )
             })
-        } else {
-            swal('错误！', '请选择你要更换的主题', 'error')
         }
-    }
-    ThemeButton.click(changeTheme)
+        CheckButton.click(Checkin)
 
-    // 更换订阅类型
-    var SubButton = $("#id-button-sub")
-    var changeSub = function () {
-        var sub_type = $("select[name=selects-sub-types]").val();
-        if (sub_type) {
-            data = {
-                sub_type: sub_type,
-                csrfmiddlewaretoken: '{{ csrf_token }}',
+        // 更换主题
+        var ThemeButton = $("#id-button-theme")
+        var changeTheme = function () {
+            var theme = $("select[name=selects]").val();
+            if (theme) {
+                data = {
+                    theme: theme,
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                }
+                url = "{% url 'api:change_theme' %}"
+                $.post(url, data, function (results) {
+                    info = results
+                    swal(info.title, info.subtitle, info.status)
+                })
+            } else {
+                swal('错误！', '请选择你要更换的主题', 'error')
             }
-            url = "{% url 'api:change_sub_type' %}"
-            $.post(url, data, function (results) {
-                info = results
-                swal(info.title, info.subtitle, info.status)
-            })
-        } else {
-            swal('ERROR!', 'Please select the type of subscription you want to change', 'error')
         }
-    }
-    SubButton.click(changeSub)
+        ThemeButton.click(changeTheme)
 
-    // 更换加密方式
-    var MethodButton = $("#id-button-method")
-    var changeMethod = function () {
-        var method = $("select[name=selects-method-types]").val();
-        if (method) {
-            data = {
-                ss_method: method,
-                csrfmiddlewaretoken: '{{ csrf_token }}',
+        // 更换订阅类型
+        var SubButton = $("#id-button-sub")
+        var changeSub = function () {
+            var sub_type = $("select[name=selects-sub-types]").val();
+            if (sub_type) {
+                data = {
+                    sub_type: sub_type,
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                }
+                url = "{% url 'api:change_sub_type' %}"
+                $.post(url, data, function (results) {
+                    info = results
+                    swal(info.title, info.subtitle, info.status)
+                })
+            } else {
+                swal('ERROR!', 'Please select the type of subscription you want to change', 'error')
             }
-            url = "{% url 'api:user_settings' %}"
-            $.post(url, data, function (results) {
-                info = results
-                swal(info.title, info.subtitle, info.status)
-            })
-        } else {
-            swal('ERROR!', 'Please select the encryption type you want to replace', 'error')
         }
-    }
-    MethodButton.click(changeMethod)
-    // 更换密码
-    var PasswordButton = $("#id-button-password")
-    var changePassword = function () {
-        var password = $("#id-password").val();
-        if (password) {
-            data = {
-                ss_password: password,
-                csrfmiddlewaretoken: '{{ csrf_token }}',
+        SubButton.click(changeSub)
+
+        // 更换加密方式
+        var MethodButton = $("#id-button-method")
+        var changeMethod = function () {
+            var method = $("select[name=selects-method-types]").val();
+            if (method) {
+                data = {
+                    ss_method: method,
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                }
+                url = "{% url 'api:user_settings' %}"
+                $.post(url, data, function (results) {
+                    info = results
+                    swal(info.title, info.subtitle, info.status)
+                })
+            } else {
+                swal('ERROR!', 'Please select the encryption type you want to replace', 'error')
             }
-            url = "{% url 'api:user_settings' %}"
-            $.post(url, data, function (results) {
-                info = results
-                swal(info.title, info.subtitle, info.status)
-            })
-        } else {
-            swal('ERROR!', 'Please enter SS password', 'error')
         }
-    }
-    PasswordButton.click(changePassword)
-</script> {% endblock main %}
+        MethodButton.click(changeMethod)
+        // 更换密码
+        var PasswordButton = $("#id-button-password")
+        var changePassword = function () {
+            var password = $("#id-password").val();
+            if (password) {
+                data = {
+                    ss_password: password,
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                }
+                url = "{% url 'api:user_settings' %}"
+                $.post(url, data, function (results) {
+                    info = results
+                    swal(info.title, info.subtitle, info.status)
+                })
+            } else {
+                swal('ERROR!', 'Please enter SS password', 'error')
+            }
+        }
+        PasswordButton.click(changePassword)
+    </script> {% endblock main %}
