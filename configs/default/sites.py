@@ -44,7 +44,7 @@ INVITEINFO = "Click on the invitation code to go to the registration page or cop
 TOKEN = "youowntoken"
 
 # 是否开启用户到期邮件通知
-EXPIRE_EMAIL_NOTICE = False
+EXPIRE_EMAIL_NOTICE = True
 
 # SHORT_URL_ALPHABET 请随机生成,且不要重复
 DEFAULT_ALPHABET = "qwertyuiopasdfghjklzxcvbnm"

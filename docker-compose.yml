@@ -14,8 +14,10 @@ services:
     volumes:
       - ./configs/nginx/:/etc/nginx/conf.d
       - .:/usr/src/app
+      - .:etc/ssl:/ssl/
     ports:
       - 80:80
+      - 443:443
     depends_on:
       - web
     networks:
